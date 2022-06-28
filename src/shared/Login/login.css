@@ -1,0 +1,95 @@
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    margin: 20px;
+    display: flex;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0px 0px 30px #d0d0d0;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.alertError {
+    padding: 14px;
+    background: #ef3333;
+    color: white;
+    margin: 10px;
+    border-radius: 11px;
+}
+
+.group label {
+    font-weight: bolder;
+    color: #d9d9d9;
+    padding: 5px;
+}
+
+.group {
+    display: flex;
+    flex-flow: column;
+}
+
+.group > h1 {
+    text-align: center;
+    margin: 5px;
+    font-weight: bold;
+    font-size: 25pt;
+    color: var(--blue);
+}
+.group > p {
+    text-align: center;
+    margin: 5px;
+    font-size: 11pt;
+    color: var(--blue);
+}
+
+.group > input {
+    border: 1px solid var(--grayC4);
+    padding: 8px;
+    width: 250px;
+    margin: 5px;
+}
+
+.linkForm {
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.linkForm > a {
+    font-size: 10pt;
+    text-decoration: none;
+    margin: 3px;
+    color: var(--blue);
+}
+
+.linkForm > a:hover {
+    text-decoration: underline;
+}
+
+.form > button {
+    background-color: var(--blue);
+    padding: 10px 25px 10px 25px;
+    color: var(--white);
+}
+
+@media all and (max-width: 600px) {
+    .main {
+        margin-top: 100px;
+    }
+}
+
+@media all and (min-width: 600px) {
+    .main {
+        margin-top: 200px;
+        margin-bottom: 100px;
+    }
+}

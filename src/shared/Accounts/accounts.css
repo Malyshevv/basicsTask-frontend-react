@@ -1,0 +1,48 @@
+.main {
+    width: 80%;
+    display: flex;
+    flex-flow: column;
+    margin: 20px auto;
+}
+
+@media all and (max-width: 1200px) {
+    .main {
+        width: 90%;
+        flex-flow: column;
+    }
+}
+
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 4rem 5vw;
+    padding: 0;
+    list-style-type: none;
+}
+
+.card {
+    position: relative;
+    display: block;
+    width: 170px;
+    background: #fff;
+    padding: 10px;
+    margin: 5px;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.cardImage {
+    border-radius: 10px;
+    width: 150px;
+    height: auto;
+}
+
+.cardContent p {
+    padding: 5px;
+}
+
+.cardContent {
+    color: black;
+}
