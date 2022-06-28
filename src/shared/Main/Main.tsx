@@ -4,13 +4,12 @@ import styles from './main.css';
 import {useSelector} from "react-redux";
 import {RootState} from "../../utils/redux/reducer";
 
-export function Main(socket:any) {
+export function Main() {
 
     const [userType, setUserType] = useState('');
     const token = useSelector<RootState, string>(state => state.token)
 
     useEffect(() => {
-        console.log(token)
         if (!token) {
             setUserType('anonymous')
         } else {

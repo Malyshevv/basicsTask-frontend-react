@@ -7,7 +7,7 @@ import './main.global.css'
 //import io from "socket.io-client";
 import {Provider, useSelector} from 'react-redux';
 import { store } from './utils/redux/store';
-
+import {RootState} from "./utils/redux/reducer";
 import {saveToken} from "./utils/redux/token/tokenReducer";
 /**My Component**/
 import {Layout} from "./shared/Layout";
@@ -16,11 +16,17 @@ import {Header} from "./shared/Header";
 import {Footer} from "./shared/Footer";
 import {Main} from "./shared/Main";
 import {NotFound} from "./shared/NotFound";
+import {Login} from "./shared/Login";
+import {Signup} from "./shared/Signup";
+import {Accounts} from "./shared/Accounts";
+
+
 
 
 function Container() {
     let location = useLocation();
     let state = location.state as { backgroundLocation?: Location };
+    const token = useSelector<RootState, string>(state => state.token)
 
     return (
         <Layout>
@@ -28,6 +34,17 @@ function Container() {
             <Content>
                 <Routes location={state?.backgroundLocation || location}>
                     <Route path="/" element={<Main/>}/>
+                    {token && (
+                        <Route path="/">
+                            <Route path="/accounts" element={<Accounts/>}/>
+                        </Route>
+                    )}
+                    {!token && (
+                        <Route path="/">
+                            <Route path="login" element={<Login />} />
+                            <Route path="signup" element={<Signup />} />
+                        </Route>
+                    )}
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
             </Content>
