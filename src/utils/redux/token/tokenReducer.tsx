@@ -43,13 +43,13 @@ export const saveToken  = (): ThunkAction<void, RootState, unknown, Action<strin
                  .catch((err) => {
                      return err;
                  });
+
+             const token = Cookies.get('token') || window.__token__;
+             dispatch(setToken(token))
+             if (token && token != 'undefined') {
+                 Cookies.set('token', token);
+             }
          }
         fetchData().catch((err) => console.log(err))
-
-        const token = Cookies.get('token') || window.__token__;
-        dispatch(setToken(token))
-        if (token && token != 'undefined') {
-            Cookies.set('token', token);
-        }
     }, []);
 }
