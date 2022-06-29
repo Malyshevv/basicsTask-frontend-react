@@ -29,17 +29,23 @@ export const tokenReducer: Reducer<any, any> = (state, action) => {
 }
 
 export const saveToken  = (): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch) => {
-    useEffect(() => {
-        axios.get(apiUrl + '/session', { headers: { 'Content-Type': 'application/json' }, withCredentials: true })
-            .then((res) => {
-                // @ts-ignore
-                let result = res.data.result
-                if (result.user) {
-                    dispatch(setUserData(result.user))
-                    Cookies.set('token', result.user.token);
-                }
-            })
-            .catch();
+    useEffect( () => {
+         const fetchData = async () => {
+             const data = await axios.get(apiUrl + '/session', {headers: {'Content-Type': 'application/json'}, withCredentials: true})
+                 .then((res) => {
+                     // @ts-ignore
+                     let result = res.data.result
+                     if (result.user) {
+                         dispatch(setUserData(result.user))
+                         Cookies.set('token', result.user.token);
+                     }
+                 })
+                 .catch((err) => {
+                     return err;
+                 });
+         }
+        fetchData().catch((err) => console.log(err))
+
         const token = Cookies.get('token') || window.__token__;
         dispatch(setToken(token))
         if (token && token != 'undefined') {

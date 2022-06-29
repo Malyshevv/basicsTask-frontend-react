@@ -39,10 +39,12 @@ export const userListRequestAsync = (): ThunkAction<void, RootState, unknown, Ac
 
     dispatch(userListsRequest())
 
-    let formData = new FormData();
-    formData.append('email', getState().user.data.email)
+    let email = await getState().user.data.email;
 
-    axios({
+    let formData = new FormData();
+    formData.append('email', email)
+
+    await axios({
         url: url,
         method: 'POST',
         withCredentials: true,

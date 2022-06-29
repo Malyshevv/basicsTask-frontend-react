@@ -5,7 +5,6 @@ import {tokenReducer} from "./token/tokenReducer";
 import {loginReducer} from "./User/Login/reducerLogin";
 import {reducerSignup} from "./User/signup/reducerSignup";
 import {reducerUserLists} from "./User/Lists/reducerUserLists";
-import {setUserData} from "./token/actionToken";
 
 export type RootState = {
     token: string,

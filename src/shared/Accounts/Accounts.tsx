@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import styles from './accounts.css';
 import {useAccountsLoad} from "../../utils/hooks/useAccountsLoad";
-import {Link} from "react-router-dom";
+import {apiUrl, avatarPath} from "../../../config/api.config";
 import {getAge} from "../../utils/js/getAge";
 
 export function Accounts() {
@@ -28,7 +28,7 @@ export function Accounts() {
             {stateList && (
                 stateList.map((list:IList) => (
                     <li key={list._id} className={styles.card}>
-                        <img src={(list.avatar) ? `http://localhost:5001/upload/avatar/${list.avatar}` : 'https://124ural.ru/wp-content/uploads/2017/04/no-avatar.png'} className={styles.cardImage}/>
+                        <img src={(list.avatar) ? `${apiUrl}${avatarPath}${list.avatar}` : 'https://124ural.ru/wp-content/uploads/2017/04/no-avatar.png'} className={styles.cardImage}/>
                         <div className={styles.cardContent}>
                             <p><b>Имя</b>: {list.name}</p>
                             <p><b>Возраст</b>: {getAge(list.birthday)}</p>
