@@ -57,7 +57,7 @@ export const SignupRequestAsync = (data:any): ThunkAction<void, RootState, unkno
     }
         axios(config)
             .then((resp) => {
-                const userData = resp.data
+                const userData = resp.data._doc
                 //setData(myUserData)
                 Cookies.set('token', userData.token)
                 dispatch(signupRequestSuccess(userData))
