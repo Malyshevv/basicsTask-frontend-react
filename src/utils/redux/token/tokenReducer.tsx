@@ -5,7 +5,7 @@ import {RootState} from "../reducer";
 import {Action} from "redux";
 import Cookies from 'js-cookie'
 import {store} from "../store";
-import {setToken} from "./actionToken";
+import {setToken, setUserData} from "./actionToken";
 import axios from "axios";
 import {apiUrl, headers} from "../../../../config/api.config";
 
@@ -16,6 +16,12 @@ export const tokenReducer: Reducer<any, any> = (state, action) => {
             return {
                 ...state,
                 token: action.token
+            }
+        case actionType.SET_USER_DATA:
+            return {
+                ...state,
+                loading: false,
+                data: action.data
             }
         default:
             return state
@@ -29,6 +35,7 @@ export const saveToken  = (): ThunkAction<void, RootState, unknown, Action<strin
                 // @ts-ignore
                 let result = res.data.result
                 if (result.user) {
+                    dispatch(setUserData(result.user))
                     Cookies.set('token', result.user.token);
                 }
             })

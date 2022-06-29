@@ -5,6 +5,7 @@ import {tokenReducer} from "./token/tokenReducer";
 import {loginReducer} from "./User/Login/reducerLogin";
 import {reducerSignup} from "./User/signup/reducerSignup";
 import {reducerUserLists} from "./User/Lists/reducerUserLists";
+import {setUserData} from "./token/actionToken";
 
 export type RootState = {
     token: string,
@@ -48,6 +49,19 @@ export const rootReducer: Reducer<any,any> = (state = initialState ,action) => {
             return {
                 ...state,
                 token: tokenReducer(action.token,action)
+            }
+        case actionType.SET_USER_DATA:
+            return {
+                ...state,
+                user: {
+                    loading: false,
+                    error: {
+                        login: '',
+                        signup: '',
+                        error: ''
+                    },
+                    data: tokenReducer(action.data,action)
+                }
             }
         case actionType.LOGIN_REQUEST:
         case actionType.LOGIN_REQUEST_SUCCESS:

@@ -6,7 +6,8 @@ import { Action } from 'redux'
 import axios from "axios";
 import { apiUrl, headers } from '../../../../../config/api.config';
 import {userListsRequest, userListsRequestError, userListsRequestSuccess} from "./actionUserLists";
-import Cookies from "js-cookie";
+import Cookies, {get} from "js-cookie";
+import {useSelector} from "react-redux";
 
 export const reducerUserLists: Reducer<any,any> = (state , action) => {
     switch (action.type) {
@@ -33,22 +34,28 @@ export const reducerUserLists: Reducer<any,any> = (state , action) => {
 }
 
 
-export const userListRequestAsync = (): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch,getState) => {
+export const userListRequestAsync = (): ThunkAction<void, RootState, unknown, Action<string>> => async (dispatch, getState) => {
     const url = `${apiUrl}/api/users`;
 
     dispatch(userListsRequest())
 
-        axios.get(url, {
-            headers: headers
+    let formData = new FormData();
+    formData.append('email', getState().user.data.email)
+
+    axios({
+        url: url,
+        method: 'POST',
+        withCredentials: true,
+        headers: headers,
+        data: formData
+    })
+        .then((resp) => {
+            const userData = resp.data
+            dispatch(userListsRequestSuccess(userData))
         })
-            .then((resp) => {
-                const userData = resp.data
-                console.log(userData)
-                dispatch(userListsRequestSuccess(userData))
-            })
-            .catch((error) => {
-                console.log(error)
-                dispatch(userListsRequestError(String((error.response.data) ? JSON.stringify(error.response.data.error): error)))
-            });
+        .catch((error) => {
+            console.log(error)
+            dispatch(userListsRequestError(String((error.response.data) ? JSON.stringify(error.response.data.error) : error)))
+        });
 
 }
