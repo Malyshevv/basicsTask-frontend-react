@@ -43,7 +43,7 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        name: 'images/[name].[ext]',
+                        name: 'assets/images/[name].[ext]',
                         publicPath: '/'
                     },
                 }],
@@ -54,6 +54,8 @@ module.exports = {
                     'style-loader', {
                         loader: 'css-loader',
                         options: {
+                            url: true,
+                            esModule: false,
                             modules: {
                                 mode: 'local',
                                 localIdentName: '[name]__[local]--[hash:base64:5]'
