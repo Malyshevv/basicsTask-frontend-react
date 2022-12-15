@@ -2,7 +2,7 @@
 import React,{useEffect,useState} from "react";
 import {BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate} from 'react-router-dom'
 /**Project CSS**/
-import './main.global.css'
+import './global.css'
 /**utils**/
 //import io from "socket.io-client";
 import {Provider, useSelector} from 'react-redux';
