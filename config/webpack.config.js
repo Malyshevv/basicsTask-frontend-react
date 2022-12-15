@@ -12,7 +12,7 @@ function setupDevTool() {
 }
 
 
-const GLOBAL_CSS_REGEXP = /\.global\.css$/;
+const GLOBAL_CSS_REGEXP = /\.global\/.css$/i;
 
 
 module.exports = {

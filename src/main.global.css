@@ -48,6 +48,7 @@ body {
     background-color: var(--grayF3);
     font-size: 14px;
     line-height: 16px;
+    background-image: url("./assets/images/1.jpg");
     font-family: 'Roboto', serif;
 }
 
