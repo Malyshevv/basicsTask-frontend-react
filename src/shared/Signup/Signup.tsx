@@ -83,33 +83,60 @@ export function Signup() {
           {errorMessage && (
               <div className={styles.alertError}> {errorMessage} </div>
           )}
-          <div className={styles.group}>
+
+          <div style={{margin: '30px'}} />
+
+          <div className={styles.form_field}>
+            <input type="text" placeholder=" " name="uname" required/>
             <label>Email</label>
-            <input type="email" name="email" placeholder="Email" required/>
           </div>
-          <div className={styles.group}>
-            <label>Пароль</label>
-            <input type="password" name="password" placeholder="Пароль" required/>
+          <div className={styles.form_field}>
+            <input type="password" placeholder=" " name="psw" required />
+              <label>Password</label>
           </div>
-          <div className={styles.group}>
-            <label>Имя</label>
-            <input type="text" name="name" placeholder="Имя" required/>
-          </div>
-          <div className={styles.group}>
-            <label>Дата рождения</label>
-            <input type="date" name="birthday" placeholder="Дата рождения" required/>
-          </div>
-          <div className={styles.group}>
-            <label>Аватар</label>
-            <input type="file" name="avatar" onChange={e => handleSetImage(e)}/>
-          </div>
-          <div className={styles.group}>
-            <label>Пол</label>
-            <select name="gender">
-              <option value="male">Мужчина</option>
-              <option value="female">Женщина</option>
+          {/*<div className={styles.form_field}>*/}
+            {/*<input type="text" placeholder=" " name="psw" id==  />*/}
+          <div className={styles.f}>
+            <select>
+              <option value=''>Пожалуйста выберите </option>
+              <option value="grapefruit">Grapefruit</option>
+              <option value="lime">Lime</option>
+              <option value="coconut">Coconut</option>
+              <option value="mango">Mango</option>
             </select>
+            <label>Филиал/площадка</label>
           </div>
+
+          {/*</div>*/}
+
+
+          {/*<div className={styles.group}>*/}
+          {/*  <label>Email</label>*/}
+          {/*  <input type="email" name="email" placeholder="Email" required/>*/}
+          {/*</div>*/}
+          {/*<div className={styles.group}>*/}
+          {/*  <label>Пароль</label>*/}
+          {/*  <input type="password" name="password" placeholder="Пароль" required/>*/}
+          {/*</div>*/}
+          {/*<div className={styles.group}>*/}
+          {/*  <label>Имя</label>*/}
+          {/*  <input type="text" name="name" placeholder="Имя" required/>*/}
+          {/*</div>*/}
+          {/*<div className={styles.group}>*/}
+          {/*  <label>Дата рождения</label>*/}
+          {/*  <input type="date" name="birthday" placeholder="Дата рождения" required/>*/}
+          {/*</div>*/}
+          {/*<div className={styles.group}>*/}
+          {/*  <label>Аватар</label>*/}
+          {/*  <input type="file" name="avatar" onChange={e => handleSetImage(e)}/>*/}
+          {/*</div>*/}
+          {/*<div className={styles.group}>*/}
+          {/*  <label>Пол</label>*/}
+          {/*  <select name="gender">*/}
+          {/*    <option value="male">Мужчина</option>*/}
+          {/*    <option value="female">Женщина</option>*/}
+          {/*  </select>*/}
+          {/*</div>*/}
           <button type="submit">Регистрация</button>
           <div className={styles.linkForm}>
             <Link to="/login">Войти</Link>
