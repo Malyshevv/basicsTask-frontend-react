@@ -45,10 +45,9 @@ nav, footer, header, aside {
 body {
     padding: 0;
     margin: 0;
-    background-color: var(--grayF3);
+    background: url('./assets/images/1.png') repeat-y 8px top, url('./assets/images/1.png') repeat-y right 8px top #017bb9;
     font-size: 14px;
     line-height: 16px;
-    /*background-image: url("./assets/images/1.jpg");*/
     font-family: 'Roboto', serif;
 }
 
