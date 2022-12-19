@@ -19,8 +19,7 @@ import {NotFound} from "./shared/NotFound";
 import {Login} from "./shared/Login";
 import {Signup} from "./shared/Signup";
 import {Accounts} from "./shared/Accounts";
-
-
+import {Resetting} from "./shared/Resetting";
 
 
 function Container() {
@@ -44,6 +43,7 @@ function Container() {
                         <Route path="/">
                             <Route path="login" element={<Login />} />
                             <Route path="signup" element={<Signup />} />
+                            <Route path="resetting" element={<Resetting />} />
                         </Route>
                     )}
                     <Route path="*" element={<NotFound/>}/>
