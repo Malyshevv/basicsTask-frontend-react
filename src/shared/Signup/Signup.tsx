@@ -1,11 +1,54 @@
-import React, {useState, useEffect, ReactEventHandler, ChangeEvent} from 'react';
+import React, {useState, useEffect, ReactEventHandler, ChangeEvent, FC} from 'react';
 import styles from './signup.css';
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../utils/redux/reducer";
 import {SignupRequestAsync} from "../../utils/redux/User/signup/reducerSignup";
+import {MainLogo} from "../../assets/svg/MainLogo";
 
 const md5 = require('md5');
+
+export type Props = {
+  label: string;
+  type: string;
+  name: string;
+  required: boolean;
+}
+
+export type PropsT ={
+  arr: any;
+  label: string;
+  name: string;
+}
+
+const InputLabel:FC<Props> = props => {
+  const {label, type, name, required} = props
+  return (
+      <div className={styles.form_field}>
+        <input type={type} placeholder=" " name={name} required={required}/>
+        <label>{label}</label>
+      </div>
+  )
+}
+const filial = ['Филиал Восточный (авт.)', 'Филиал Северо-Восточный(тролл.)', 'Филиал Северо-Восточный(авт.)', 'Филиал Западный'];
+const role = ['Руководитель предприятия', 'Руководитель филиала', 'Руководитель площадки', 'Начальник безопасности движения']
+
+const SelectLabel:FC<PropsT> = props => {
+  const {arr, name, label} = props
+  const [value, setValue] = useState('');
+  const options = arr.map((text:string, index:number) => {
+    return <option key={index}>{text}</option>;
+  });
+  return (
+      <div className={styles.f}>
+        <select name={name} value={value} onChange={(event) => setValue(event.target.value)}>
+          <option value=''>Пожалуйста выберите </option>
+          {options}
+        </select>
+        <label>{label}</label>
+      </div>
+  )
+}
 
 export function Signup() {
   let location = useLocation()
@@ -13,7 +56,6 @@ export function Signup() {
 
   const [errorMessage, setErrorMessage] = useState('');
   const [pendingData, setPendingData] = useState({})
-  const [avatartState, setAvatart] = useState<any>()
 
   const error = useSelector<RootState, any>((state) => state.user.error?.signup);
   const loading = useSelector<RootState, any>((state) => state.user.loading);
@@ -21,12 +63,6 @@ export function Signup() {
 
   const dispatch = useDispatch();
 
-  const handleSetImage = (event: ChangeEvent<HTMLInputElement>) => {
-    const { files } = event.target;
-    if (files) {
-      setAvatart(files[0]);
-    }
-  };
 
   useEffect(() => {
     if (error && error !== undefined) {
@@ -42,27 +78,33 @@ export function Signup() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(avatartState);
     // @ts-ignore
     let email = e.target.email.value;
-    // @ts-ignore
-    let birthday = e.target.birthday.value;
-    // @ts-ignore
-    let gender = e.target.gender.value;
     // @ts-ignore
     let name = e.target.name.value;
     // @ts-ignore
     let password = e.target.password.value;
+    // @ts-ignore
+    let surname = e.target.surname.value;
+    // @ts-ignore
+    let filial = e.target.filial.value;
+    // @ts-ignore
+    let position = e.target.position.value;
+    // @ts-ignore
+    let role = e.target.role.value;
+    // @ts-ignore
 
     const data = {
-      email: email,
-      birthday: birthday,
-      gender: gender,
-      avatar: avatartState,
       name: name,
+      surname: surname,
+      filial: filial,
+      position: position,
+      role: role,
+      email: email,
       password: password
     }
     setPendingData(data);
+    console.log('data', data)
   }
 
   useEffect(() => {
@@ -72,75 +114,35 @@ export function Signup() {
     }
   }, [pendingData]);
 
+
+
+
+
   return (
       <div className={styles.main}>
 
         <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.group}>
-            <h1>Регистрация!</h1>
-            <p>Супер регистрация</p>
+          <div className={styles.mainLogo}>
+            <Link to="/">
+              <MainLogo />
+            </Link>
           </div>
           {errorMessage && (
               <div className={styles.alertError}> {errorMessage} </div>
           )}
 
-          <div style={{margin: '30px'}} />
-
-          <div className={styles.form_field}>
-            <input type="text" placeholder=" " name="uname" required/>
-            <label>Email</label>
-          </div>
-          <div className={styles.form_field}>
-            <input type="password" placeholder=" " name="psw" required />
-              <label>Password</label>
-          </div>
-          {/*<div className={styles.form_field}>*/}
-            {/*<input type="text" placeholder=" " name="psw" id==  />*/}
-          <div className={styles.f}>
-            <select>
-              <option value=''>Пожалуйста выберите </option>
-              <option value="grapefruit">Grapefruit</option>
-              <option value="lime">Lime</option>
-              <option value="coconut">Coconut</option>
-              <option value="mango">Mango</option>
-            </select>
-            <label>Филиал/площадка</label>
-          </div>
-
-          {/*</div>*/}
+          <SelectLabel arr={filial} name={'filial'} label={'Филиал/площадка'}/>
+          <SelectLabel arr={role} name={'role'} label={'Роль'}/>
 
 
-          {/*<div className={styles.group}>*/}
-          {/*  <label>Email</label>*/}
-          {/*  <input type="email" name="email" placeholder="Email" required/>*/}
-          {/*</div>*/}
-          {/*<div className={styles.group}>*/}
-          {/*  <label>Пароль</label>*/}
-          {/*  <input type="password" name="password" placeholder="Пароль" required/>*/}
-          {/*</div>*/}
-          {/*<div className={styles.group}>*/}
-          {/*  <label>Имя</label>*/}
-          {/*  <input type="text" name="name" placeholder="Имя" required/>*/}
-          {/*</div>*/}
-          {/*<div className={styles.group}>*/}
-          {/*  <label>Дата рождения</label>*/}
-          {/*  <input type="date" name="birthday" placeholder="Дата рождения" required/>*/}
-          {/*</div>*/}
-          {/*<div className={styles.group}>*/}
-          {/*  <label>Аватар</label>*/}
-          {/*  <input type="file" name="avatar" onChange={e => handleSetImage(e)}/>*/}
-          {/*</div>*/}
-          {/*<div className={styles.group}>*/}
-          {/*  <label>Пол</label>*/}
-          {/*  <select name="gender">*/}
-          {/*    <option value="male">Мужчина</option>*/}
-          {/*    <option value="female">Женщина</option>*/}
-          {/*  </select>*/}
-          {/*</div>*/}
-          <button type="submit">Регистрация</button>
-          <div className={styles.linkForm}>
-            <Link to="/login">Войти</Link>
-          </div>
+          <InputLabel name={'name'} type={'text'} label={'Имя'} required />
+          <InputLabel name={'surname'} type={'text'} label={'Фамилия'} required />
+          <InputLabel name={'position'} type={'text'} label={'Должность'} required />
+          <InputLabel name={'email'} type={'email'} label={'Email' } required />
+          <InputLabel name={'password'} type={'password'} label={'Пароль'} required />
+
+          <button className={styles.button} type="submit">Регистрация</button>
+
         </form>
       </div>
   );
