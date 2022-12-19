@@ -5,7 +5,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {loginRequestAsync} from "../../utils/redux/User/Login/reducerLogin";
 import {RootState} from "../../utils/redux/reducer";
+import {MainLogo} from "../../assets/svg/MainLogo";
+import {TrolleyBusLogo} from "../../assets/svg/TrolleyBusLogo";
+import {BusLogo} from "../../assets/svg/BusLogo";
+import {TramLogo} from "../../assets/svg/TramLogo";
 const md5 = require('md5');
+
 
 export function Login() {
 
@@ -51,25 +56,51 @@ export function Login() {
   return (
       <div className={styles.main}>
         <form className={styles.form}  onSubmit={handleSubmit}>
-          <div className={styles.group}>
-            <h1>Вход!</h1>
-            <p>Супер вход</p>
+          <div className={styles.mainLogo}>
+            <Link to="/">
+              <MainLogo />
+            </Link>
           </div>
           {errorMessage && (
               <div className={styles.alertError}> {errorMessage} </div>
           )}
           <div className={styles.group}>
-            <label>Email</label>
-            <input type="email" name="email" placeholder="Email" required/>
+            <input className={styles.input} type="email" name="email" placeholder="Имя пользователя" required/>
           </div>
           <div className={styles.group}>
-            <label>Пароль</label>
-            <input type="password" name="password" autoComplete="on" placeholder="Пароль" required/>
+            <input className={styles.input} type="password" name="password" autoComplete="on" placeholder="Пароль" required/>
           </div>
-          <button type="submit">Войти</button>
+
+          <div className={styles.rememberContainer}>
+            <input className={styles.customCheckbox}  type="checkbox" id="checkbox"
+                   name="_remember_me" value="on"/>
+            <label htmlFor="checkbox">Запомнить меня</label>
+          </div>
+
+          <button className={styles.button} type="submit">Войти</button>
+
           <div className={styles.linkForm}>
             <Link to="/signup">Регистрация</Link>
+            <Link to="/signup">Забыли пароль?</Link>
           </div>
+
+          <div>
+            <h2 className={styles.tagline}>Умный</h2>
+            <h2 className={styles.tagline}>транспорт</h2>
+          </div>
+
+          <div className={styles.logoContainer}>
+            <div className={styles.logo}>
+              <TrolleyBusLogo/>
+            </div>
+            <div className={styles.logo}>
+              <BusLogo/>
+            </div>
+            <div className={styles.logo}>
+              <TramLogo/>
+            </div>
+          </div>
+
         </form>
       </div>
   );
