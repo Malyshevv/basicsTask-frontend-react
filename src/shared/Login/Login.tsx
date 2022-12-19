@@ -9,6 +9,7 @@ import {MainLogo} from "../../assets/svg/MainLogo";
 import {TrolleyBusLogo} from "../../assets/svg/TrolleyBusLogo";
 import {BusLogo} from "../../assets/svg/BusLogo";
 import {TramLogo} from "../../assets/svg/TramLogo";
+import {InputLabel} from "../../components/InputLabel";
 const md5 = require('md5');
 
 
@@ -64,12 +65,10 @@ export function Login() {
           {errorMessage && (
               <div className={styles.alertError}> {errorMessage} </div>
           )}
-          <div className={styles.group}>
-            <input className={styles.input} type="email" name="email" placeholder="Имя пользователя" required/>
-          </div>
-          <div className={styles.group}>
-            <input className={styles.input} type="password" name="password" autoComplete="on" placeholder="Пароль" required/>
-          </div>
+
+          <InputLabel name={'email'} type={'email'} label={'Email' } required />
+          <div style={{margin: '10px'}} />
+          <InputLabel name={'password'} type={'password'} label={'Пароль'} required />
 
           <div className={styles.rememberContainer}>
             <input className={styles.customCheckbox}  type="checkbox" id="checkbox"

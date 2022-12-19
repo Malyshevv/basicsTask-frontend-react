@@ -5,50 +5,15 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../utils/redux/reducer";
 import {SignupRequestAsync} from "../../utils/redux/User/signup/reducerSignup";
 import {MainLogo} from "../../assets/svg/MainLogo";
+import {InputLabel} from "../../components/InputLabel";
+import {SelectLabel} from "../../components/SelectLabel";
 
 const md5 = require('md5');
 
-export type Props = {
-  label: string;
-  type: string;
-  name: string;
-  required: boolean;
-}
-
-export type PropsT ={
-  arr: any;
-  label: string;
-  name: string;
-}
-
-const InputLabel:FC<Props> = props => {
-  const {label, type, name, required} = props
-  return (
-      <div className={styles.form_field}>
-        <input type={type} placeholder=" " name={name} required={required}/>
-        <label>{label}</label>
-      </div>
-  )
-}
 const filial = ['Филиал Восточный (авт.)', 'Филиал Северо-Восточный(тролл.)', 'Филиал Северо-Восточный(авт.)', 'Филиал Западный'];
 const role = ['Руководитель предприятия', 'Руководитель филиала', 'Руководитель площадки', 'Начальник безопасности движения']
 
-const SelectLabel:FC<PropsT> = props => {
-  const {arr, name, label} = props
-  const [value, setValue] = useState('');
-  const options = arr.map((text:string, index:number) => {
-    return <option key={index}>{text}</option>;
-  });
-  return (
-      <div className={styles.f}>
-        <select name={name} value={value} onChange={(event) => setValue(event.target.value)}>
-          <option value=''>Пожалуйста выберите </option>
-          {options}
-        </select>
-        <label>{label}</label>
-      </div>
-  )
-}
+
 
 export function Signup() {
   let location = useLocation()
@@ -115,9 +80,6 @@ export function Signup() {
   }, [pendingData]);
 
 
-
-
-
   return (
       <div className={styles.main}>
 
@@ -131,8 +93,6 @@ export function Signup() {
               <div className={styles.alertError}> {errorMessage} </div>
           )}
 
-
-
           <InputLabel name={'name'} type={'text'} label={'Имя'} required />
           <InputLabel name={'surname'} type={'text'} label={'Фамилия'} required />
           <SelectLabel arr={filial} name={'filial'} label={'Филиал/площадка'}/>
@@ -141,7 +101,9 @@ export function Signup() {
           <InputLabel name={'email'} type={'email'} label={'Email' } required />
           <InputLabel name={'password'} type={'password'} label={'Пароль'} required />
 
-          <button className={styles.button} type="submit">Регистрация</button>
+          <p style={{color: 'white', marginBottom: '10px'}}><span style={{color: 'red'}}>*</span> обязательные поля</p>
+
+          <button className={styles.button} type="submit">Зарегистрироваться</button>
 
         </form>
       </div>

@@ -30,10 +30,11 @@ function Container() {
 
     return (
         <Layout>
-            <Header/>
+            {/*<Header/>*/}
             <Content>
                 <Routes location={state?.backgroundLocation || location}>
-                    <Route path="/" element={<Main/>}/>
+                    {/*<Route path="/" element={<Main/>}/>*/}
+                    <Route path="/" element={<Login/>}/>
                     {token && (
                         <Route path="/">
                             <Route path="/accounts" element={<Accounts/>}/>
@@ -48,7 +49,7 @@ function Container() {
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
             </Content>
-            <Footer/>
+            {/*<Footer/>*/}
         </Layout>
     )
 }
