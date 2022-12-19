@@ -131,13 +131,13 @@ export function Signup() {
               <div className={styles.alertError}> {errorMessage} </div>
           )}
 
-          <SelectLabel arr={filial} name={'filial'} label={'Филиал/площадка'}/>
-          <SelectLabel arr={role} name={'role'} label={'Роль'}/>
 
 
           <InputLabel name={'name'} type={'text'} label={'Имя'} required />
           <InputLabel name={'surname'} type={'text'} label={'Фамилия'} required />
+          <SelectLabel arr={filial} name={'filial'} label={'Филиал/площадка'}/>
           <InputLabel name={'position'} type={'text'} label={'Должность'} required />
+          <SelectLabel arr={role} name={'role'} label={'Роль'}/>
           <InputLabel name={'email'} type={'email'} label={'Email' } required />
           <InputLabel name={'password'} type={'password'} label={'Пароль'} required />
 

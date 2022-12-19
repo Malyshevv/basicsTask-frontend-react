@@ -41,11 +41,15 @@ export const SignupRequestAsync = (data:any): ThunkAction<void, RootState, unkno
     dispatch(signupRequest())
     // @ts-ignore
     let formData = new FormData();
-    formData.append('avatar', data.avatar);
-    formData.append('birthday', data.birthday);
-    formData.append('email', data.email);
-    formData.append('gender', data.gender);
+    // formData.append('avatar', data.avatar);
+    // formData.append('birthday', data.birthday);
+    // formData.append('gender', data.gender);
     formData.append('name', data.name);
+    formData.append('surname', data.surname);
+    formData.append('filial', data.filial);
+    formData.append('position', data.position);
+    formData.append('role', data.role);
+    formData.append('email', data.email);
     formData.append('password', data.password);
 
     let config = {
