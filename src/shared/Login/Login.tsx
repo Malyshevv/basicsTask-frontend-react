@@ -34,12 +34,12 @@ export function Login() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // @ts-ignore
-    let email = e.target.email.value;
+    let username = e.target.username.value;
     // @ts-ignore
     let password = e.target.password.value;
 
     const data = {
-      email: email,
+      username: username,
       password: password
     }
     // @ts-ignore
@@ -66,7 +66,7 @@ export function Login() {
               <div className="Login__alertError"> {errorMessage} </div>
           )}
 
-          <InputLabel name={'email'} type={'email'} label={'Email' } required />
+          <InputLabel name={'username'} type={'text'} label={'Имя пользователя'} required />
           <div style={{margin: '10px'}} />
           <InputLabel name={'password'} type={'password'} label={'Пароль'} required />
 

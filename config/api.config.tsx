@@ -1,8 +1,10 @@
 import Cookies from "js-cookie";
 
-export const apiUrl = 'http://localhost:5001'
-export const avatarPath = '/upload/avatar/'
-//export const accessToken = '18afe9a4-c1e6-43b1-90f4-1857ba535fc6'
+// export const apiUrl = 'http://localhost:5001'
+export const apiUrl = 'http://localhost:3001';
+
+export const avatarPath = '/upload/avatar/';
+export const accessToken = Cookies.get('token');
 export const headers = {
     "authorization": `${Cookies.get('token')}`,
     "Content-Type": 'application/x-www-form-urlencoded',

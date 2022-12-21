@@ -37,31 +37,33 @@ export const loginReducer: Reducer<any, any> = (state, action) => {
 };
 
 export const loginRequestAsync = (data:any): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch, getState) => {
-    const url = `${apiUrl}/api/auth/signing`;
+    const url = `${apiUrl}/auth/login`;
 
     dispatch(loginRequest());
 
-    let formData = new FormData();
-    formData.append('avatar', data.avatar);
-    formData.append('birthday', data.birthday);
-    formData.append('email', data.email);
-    formData.append('gender', data.gender);
-    formData.append('name', data.name);
-    formData.append('password', data.password);
+    let formData = {username: data.username, password: data.password}
+    // formData.append('avatar', data.avatar);
+    // formData.append('birthday', data.birthday);
+    // formData.append('email', data.email);
+    // formData.append('gender', data.gender);
+    // formData.append('username', data.username);
+    // formData.append('password', data.password);
 
     let config = {
         url: url,
         method: 'POST',
-        withCredentials: true,
+        withCredentials: false,
         headers: { 'Content-Type': 'application/json' },
         data: formData
     }
+    console.log("config.data", config.data)
 
     axios(config)
         .then((resp) => {
-            const userData = resp.data._doc;
+            const userData = resp.data;
+            console.log(resp)
             Cookies.set('token', userData.token)
-            dispatch(loginRequestSuccess(userData));
+            dispatch(loginRequestSuccess(userData.user));
         })
         .catch((error) => {
             console.log(error);
