@@ -56,10 +56,10 @@ module.exports = {
                         options: {
                             url: true,
                             esModule: false,
-                            modules: {
-                                mode: 'local',
-                                localIdentName: '[name]__[local]--[hash:base64:5]'
-                            }
+                            // modules: {
+                            //     mode: 'local',
+                            //     localIdentName: '[name]__[local]--[hash:base64:5]'
+                            // }
                         }
                     },
                     // 'less-loader'

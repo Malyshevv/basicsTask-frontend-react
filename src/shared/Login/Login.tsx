@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import styles from './login.css';
+import './login.css';
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
@@ -55,47 +55,47 @@ export function Login() {
 
 
   return (
-      <div className={styles.main}>
-        <form className={styles.form}  onSubmit={handleSubmit}>
-          <div className={styles.mainLogo}>
+      <div className="Login__main">
+        <form className="Login__form"  onSubmit={handleSubmit}>
+          <div className="Login__mainLogo">
             <Link to="/">
               <MainLogo />
             </Link>
           </div>
           {errorMessage && (
-              <div className={styles.alertError}> {errorMessage} </div>
+              <div className="Login__alertError"> {errorMessage} </div>
           )}
 
           <InputLabel name={'email'} type={'email'} label={'Email' } required />
           <div style={{margin: '10px'}} />
           <InputLabel name={'password'} type={'password'} label={'Пароль'} required />
 
-          <div className={styles.rememberContainer}>
-            <input className={styles.customCheckbox}  type="checkbox" id="checkbox"
+          <div className="Login__rememberContainer">
+            <input className="Login__customCheckbox"  type="checkbox" id="checkbox"
                    name="_remember_me" value="on"/>
             <label htmlFor="checkbox">Запомнить меня</label>
           </div>
 
-          <button className={styles.button} type="submit">Войти</button>
+          <button className="Login__button" type="submit">Войти</button>
 
-          <div className={styles.linkForm}>
+          <div className="Login__linkForm">
             <Link to="/signup">Регистрация</Link>
             <Link to="/resetting">Забыли пароль?</Link>
           </div>
 
           <div>
-            <h2 className={styles.tagline}>Умный</h2>
-            <h2 className={styles.tagline}>транспорт</h2>
+            <h2 className="Login__tagline">Умный</h2>
+            <h2 className="Login__tagline">транспорт</h2>
           </div>
 
-          <div className={styles.logoContainer}>
-            <div className={styles.logo}>
+          <div className="Login__logoContainer">
+            <div className="Login__logo">
               <TrolleyBusLogo/>
             </div>
-            <div className={styles.logo}>
+            <div className="Login__logo">
               <BusLogo/>
             </div>
-            <div className={styles.logo}>
+            <div className="Login__logo">
               <TramLogo/>
             </div>
           </div>

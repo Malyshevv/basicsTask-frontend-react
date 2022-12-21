@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from "./mainLogo.css";
+import "./mainLogo.css";
 
 export function MainLogo () {
     return (
-        <div className={styles.logo} >
+        <div className="MainLogo__container" >
             <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                  x="0px" y="0px"
                  viewBox="0 0 33 31"  xmlSpace="preserve">

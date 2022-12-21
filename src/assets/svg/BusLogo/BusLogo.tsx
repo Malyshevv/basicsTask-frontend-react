@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from "./busLogo.css";
+import "./busLogo.css";
 
 export function BusLogo () {
     return (
-        <div className={styles.logo} >
+        <div className='BusLogo__container' >
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px"
                  y="0px"
                  viewBox="0 0 53 63" xmlSpace="preserve">

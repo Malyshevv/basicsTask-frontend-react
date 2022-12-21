@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import styles from './header.css';
+import './header.css';
 import {Link, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {RootState} from "../../utils/redux/reducer";
@@ -33,8 +33,8 @@ export function Header() {
     }
 
   return (
-      <header className={styles.header}>
-          <div className={styles.content}>
+      <header className="Header__main">
+          <div className="Header__content">
               <h3>List User Site</h3>
               <ul>
               <li><Link to='/'>Home</Link></li>
@@ -42,7 +42,7 @@ export function Header() {
                   {!token && (<li><Link to='/signup'>Signup</Link></li> )}
                   {!token && (<li><Link to='/login'>Login</Link></li> )}
               </ul>
-              {token && ( <button className={styles.logout} onClick={logout}>Logout</button> )}
+              {token && ( <button className="Header__logout" onClick={logout}>Logout</button> )}
           </div>
       </header>
   );

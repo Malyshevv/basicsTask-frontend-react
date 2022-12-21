@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import styles from "./SelectLabel.css";
+import "./SelectLabel.css";
 
 export type Props ={
     arr: any;
@@ -14,7 +14,7 @@ export const SelectLabel:FC<Props> = props => {
         return <option key={index}>{text}</option>;
     });
     return (
-        <div className={styles.form_field}>
+        <div className="SelectLabel__form-field">
             <select name={name} value={value} onChange={(event) => setValue(event.target.value)}>
                 <option value=''>Пожалуйста выберите </option>
                 {options}

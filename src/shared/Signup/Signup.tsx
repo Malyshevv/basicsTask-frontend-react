@@ -1,5 +1,5 @@
-import React, {useState, useEffect, ReactEventHandler, ChangeEvent, FC} from 'react';
-import styles from './signup.css';
+import React, {useState, useEffect, ReactEventHandler, ChangeEvent} from 'react';
+import './signup.css';
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../utils/redux/reducer";
@@ -81,16 +81,16 @@ export function Signup() {
 
 
   return (
-      <div className={styles.main}>
+      <div className="Signup__main">
 
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.mainLogo}>
+        <form className="Signup__form" onSubmit={handleSubmit}>
+          <div className="Signup__mainLogo">
             <Link to="/">
               <MainLogo />
             </Link>
           </div>
           {errorMessage && (
-              <div className={styles.alertError}> {errorMessage} </div>
+              <div className="Signup__alertError"> {errorMessage} </div>
           )}
 
           <InputLabel name={'name'} type={'text'} label={'Имя'} required />
@@ -103,7 +103,7 @@ export function Signup() {
 
           <p style={{color: 'white', marginBottom: '10px'}}><span style={{color: 'red'}}>*</span> обязательные поля</p>
 
-          <button className={styles.button} type="submit">Зарегистрироваться</button>
+          <button className="Signup__button" type="submit">Зарегистрироваться</button>
 
         </form>
       </div>

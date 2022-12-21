@@ -1,8 +1,8 @@
-.form_field {
+.SelectLabel__form-field {
     position: relative;
     height: 50px;
 }
-.form_field select {
+.SelectLabel__form-field select {
     background-color: transparent;
     padding: 10px;
     border: 1px solid #ddd;
@@ -10,7 +10,7 @@
     width: 250px;
     color: #fff;
 }
-.form_field label {
+.SelectLabel__form-field label {
     position: absolute;
     left: 8px;
     top: 8px;
@@ -20,11 +20,11 @@
     color: #fff;
 }
 
-.form_field select:hover {
+.SelectLabel__form-field select:hover {
     border: 1px solid goldenrod;
     box-shadow: 0px 0px 5px gold;
 }
-.form_field select:focus + label, select:not(:checked) ~ label {
+.SelectLabel__form-field select:focus + label, select:not(:checked) ~ label {
     top: -6px;
     left: 6px;
     font-size: 12px;

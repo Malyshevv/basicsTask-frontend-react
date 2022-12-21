@@ -1,21 +1,21 @@
-.header {
+.Header__main {
     width: 100%;
     padding: 20px;
     background-color: var(--white);
 }
 
-.content h3 {
+.Header__content h3 {
     padding-right: 10px;
 }
 
-.content {
+.Header__content {
     width: 80%;
     margin: 0 auto;
     display: flex;
     flex-flow: row;
 }
 
-.logout {
+.Header__logout {
     background: #11265d;
     color: white;
     padding: 10px;
@@ -25,39 +25,39 @@
     position: absolute;
 }
 
-.content ul {
+.Header__content ul {
     display: flex;
     flex-flow: row;
     padding: 3px;
 }
 
-.content ul li {
+.Header__content ul li {
     padding: 0px 15px 0px 15px;
 }
 
-.content ul li a {
+.Header__content ul li a {
     color: #171554;
 }
 
-.content ul li a:hover {
+.Header__content ul li a:hover {
     font-weight: bolder;
 }
 
 @media all and (min-width: 1200px) {
-    .content {
+    .Header__content {
         flex-flow: wrap;
     }
 }
 
 @media all and (max-width: 800px) {
-    .content {
+    .Header__content {
         flex-flow: column;
     }
-    .content ul {
+    .Header__content ul {
         padding-top: 10px;
         flex-flow: column;
     }
-    .content ul li {
+    .Header__content ul li {
         padding: 10px 15px 10px 0;
     }
 }

@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import styles from './resetting.css';
+import './resetting.css';
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
@@ -49,20 +49,20 @@ export function Resetting() {
 
 
   return (
-      <div className={styles.main}>
-        <form className={styles.form}  onSubmit={handleSubmit}>
-          <div className={styles.mainLogo}>
+      <div className="Resetting__main">
+        <form className="Resetting__form"  onSubmit={handleSubmit}>
+          <div className="Resetting__mainLogo">
             <Link to="/">
               <MainLogo />
             </Link>
           </div>
           {errorMessage && (
-              <div className={styles.alertError}> {errorMessage} </div>
+              <div className="Resetting__alertError"> {errorMessage} </div>
           )}
 
           <InputLabel name={'email'} type={'email'} label={'Email' } required />
 
-          <button className={styles.button} type="submit">Сбросить пароль</button>
+          <button className="Resetting__button" type="submit">Сбросить пароль</button>
 
         </form>
       </div>
