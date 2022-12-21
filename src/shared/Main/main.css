@@ -1,4 +1,107 @@
 .Main__container {
     display: flex;
+    background-color: white;
+}
+
+.Main-menu__container {
+    position: absolute;
+    width: 400px;
+    height: 100vh;
+    overflow-x: auto;
+    scroll-snap-type: y mandatory;
+    z-index: 1000;
+    background-color: #017bb9;
+    border-right: 1px solid rgba(0,0,0,.15);
+}
+
+.Main-menu__logo_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+.Main-menu__logo{
+    width: 90px;
+}
+
+.Navigation__container {
+    display: flex;
+    flex-flow: column;
+}
+
+/*Active*/
+/*background-color: #12568d*/
+
+
+.Navigation__link {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 500;
+    height: 40px;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    padding-left: 20px;
+    background-color: #016fa6
+}
+.Navigation__link:hover {
+    background-color: #033a72;
+}
+.Navigation__link-paragraph {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 500;
+    height: 40px;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    padding-left: 20px;
+    background-color: #016fa6
+}
+.Navigation__link-subparagraph {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 500;
+    height: 40px;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    padding-left: 40px;
+    background-color: #016fa6
+}
+.Navigation__link-subparagraph:hover {
+    background-color: #033a72;
+}
+
+.Main-menu__button-open {
+    position: fixed;
+    background: #017bb9;
+    width: 35px;
+    height: 70px;
+    left: 400px;
+    top: 50%;
+    cursor: pointer;
+    border-radius: 0px 28px 28px 0px;
+    padding-top: 20px;
+    padding-left: 5px;
+    z-index: 1000;
+    fill: white;
+}
+
+.Main-menu__button-close {
+    position: fixed;
+    background: #017bb9;
+    width: 35px;
+    height: 70px;
+    left: 0;
+    top: 50%;
+    cursor: pointer;
+    border-radius: 0px 28px 28px 0px;
+    padding-top: 22px;
+    padding-left: 10px;
+    z-index: 1000;
+    fill: white;
 }
 
