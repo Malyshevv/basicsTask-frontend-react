@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import styles from './main.css';
+import './main.css';
 
 import {useSelector} from "react-redux";
 import {RootState} from "../../utils/redux/reducer";
+import {MapHome} from '../MapHome'
 
 export function Main() {
 
@@ -18,9 +19,11 @@ export function Main() {
     }, [token]);
 
   return (
-      <div className={styles.main}>
-          <h1>Main Page</h1> <br/>
-          <p><label>User Type:</label> {userType}</p>
+      <div className="Main__container">
+          {/*<h1>Main Page</h1> <br/>*/}
+          {/*<p><label>User Type:</label> {userType}</p>*/}
+          <div style={{width: "20%", height: '100vh', zIndex: '1001'}} />
+          <MapHome />
       </div>
   );
 }

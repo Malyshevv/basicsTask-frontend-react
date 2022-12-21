@@ -32,8 +32,8 @@ function Container() {
             {/*<Header/>*/}
             <Content>
                 <Routes location={state?.backgroundLocation || location}>
-                    {/*<Route path="/" element={<Main/>}/>*/}
-                    <Route path="/" element={<Login/>}/>
+                    <Route path="/" element={<Main/>}/>
+                    {/*<Route path="/" element={<Login/>}/>*/}
                     {token && (
                         <Route path="/">
                             <Route path="/accounts" element={<Accounts/>}/>
