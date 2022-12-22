@@ -1,9 +1,7 @@
 import React from 'react';
-import "./mainLogo.css";
 
 export function MainLogo () {
     return (
-        <div className="MainLogo__container" >
             <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                  x="0px" y="0px"
                  viewBox="0 0 33 31"  xmlSpace="preserve">
@@ -59,7 +57,5 @@ export function MainLogo () {
 		c0.2,0,0.3,0,0.5,0l1.6-2l-0.7,2.1c0.8,0,1.6,0,2.6,0c0.3-0.8,0-1.7-0.7-2.4C19.8,7.8,19.4,7.6,18.9,7.4z"/>
                 </g>
             </svg>
-        </div>
-
     )
 }

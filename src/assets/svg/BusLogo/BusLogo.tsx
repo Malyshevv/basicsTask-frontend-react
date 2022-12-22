@@ -1,9 +1,7 @@
 import React from 'react';
-import "./busLogo.css";
 
 export function BusLogo () {
     return (
-        <div className='BusLogo__container' >
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px"
                  y="0px"
                  viewBox="0 0 53 63" xmlSpace="preserve">
@@ -20,7 +18,5 @@ export function BusLogo () {
 					c0,5.9-2.4,11.2-6.3,15.1l0,0l-18,18l2.9,2.9l18.1-18.1v0C49.2,39.9,52.1,33.5,52.1,26.5"/>
 			</g>
 			</svg>
-        </div>
-
     )
 }

@@ -5,25 +5,27 @@
 
 .Main-menu__container {
     position: absolute;
-    width: 400px;
+    width: 250px;
     height: 100vh;
     overflow-x: auto;
     scroll-snap-type: y mandatory;
     z-index: 1000;
-    background-color: #017bb9;
+    background-color: white;
     border-right: 1px solid rgba(0,0,0,.15);
+    box-shadow: 0 0 45px #777777;
 }
 
 .Main-menu__logo_container {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px;
-    border-bottom: 1px solid rgba(0,0,0,.15);
+    padding: 20px;
 }
 
 .Main-menu__logo{
     width: 90px;
+    fill: #017bb9;
+
 }
 
 .Navigation__container {
@@ -31,63 +33,70 @@
     flex-flow: column;
 }
 
-/*Active*/
-/*background-color: #12568d*/
-
-
+.Navigation__link_container {
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    height: 35px;
+}
+.Navigation__link_container:hover > h3 {
+    color: #017bb9;
+}
 .Navigation__link {
-    display: flex;
-    align-items: center;
-    color: #ffffff;
-    font-size: 17px;
-    font-weight: 500;
-    height: 40px;
-    border-bottom: 1px solid rgba(0,0,0,.15);
-    padding-left: 20px;
-    background-color: #016fa6
+    /*display: flex;*/
+    /*align-items: center;*/
+    color: black;
+    font-size: 12px;
+    /*height: 30px;*/
+    padding-left: 10px;
+    font-family: 'Manrope', sans-serif;
 }
-.Navigation__link:hover {
-    background-color: #033a72;
+h3:first-letter  {
+    font-size: 16px;
+    padding: 0;
 }
-.Navigation__link-paragraph {
-    display: flex;
-    align-items: center;
-    color: #ffffff;
-    font-size: 17px;
-    font-weight: 500;
-    height: 40px;
-    border-bottom: 1px solid rgba(0,0,0,.15);
-    padding-left: 20px;
-    background-color: #016fa6
+
+.Navigation__link_container--border {
+    border-bottom: 0.5px solid #d5d4d4
 }
+.Navigation__link_container--border:after {
+    display:block;
+    content: '';
+    border-bottom: solid 2px #017bb9;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+.Navigation__link_container--border:hover:after { transform: scaleX(1); transform-origin:  0% 50%; }
+
 .Navigation__link-subparagraph {
     display: flex;
     align-items: center;
-    color: #ffffff;
-    font-size: 17px;
-    font-weight: 500;
-    height: 40px;
-    border-bottom: 1px solid rgba(0,0,0,.15);
-    padding-left: 40px;
-    background-color: #016fa6
+    color: black;
+    font-size: 12px;
+    height: 30px;
+    padding-left: 50px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
 }
 .Navigation__link-subparagraph:hover {
-    background-color: #033a72;
+    color: #017bb9;
 }
 
 .Main-menu__button-open {
     position: fixed;
-    background: #017bb9;
-    width: 35px;
-    height: 70px;
-    left: 400px;
-    top: 50%;
+    background: white;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 350px;
+    left: 0;
+    top: 20%;
     cursor: pointer;
-    border-radius: 0px 28px 28px 0px;
-    padding-top: 20px;
-    padding-left: 5px;
+    border-radius: 0 28px 28px 0;
     z-index: 1000;
-    fill: white;
+    box-shadow: 0 0 45px #777777;
 }
 
 .Main-menu__button-close {
@@ -98,10 +107,24 @@
     left: 0;
     top: 50%;
     cursor: pointer;
-    border-radius: 0px 28px 28px 0px;
+    border-radius: 0 28px 28px 0;
     padding-top: 22px;
     padding-left: 10px;
     z-index: 1000;
     fill: white;
 }
+.Font-Icon__button {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
 
+.Main__tagline {
+    color: #017bb9;
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 10px;
+    font-family: 'Manrope', sans-serif;
+
+}

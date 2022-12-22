@@ -1,9 +1,7 @@
 import React from 'react';
-import "./trolleyBusLogo.css";
 
 export function TrolleyBusLogo () {
     return (
-        <div className="TrolleyBusLogo__container" >
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px"
                  y="0px"
                  viewBox="0 0 53 63" xmlSpace="preserve">
@@ -19,7 +17,5 @@ export function TrolleyBusLogo () {
 					C38.4,5.6,48,15.1,48,26.9c0,5.9-2.4,11.2-6.3,15.1h0l-18,18l2.9,2.9l18-18l0,0C49.3,40.3,52.1,33.9,52.1,26.9"/>
 			</g>
 			</svg>
-        </div>
-
     )
 }

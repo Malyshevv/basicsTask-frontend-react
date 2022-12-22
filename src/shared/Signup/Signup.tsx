@@ -84,11 +84,9 @@ export function Signup() {
       <div className="Signup__main">
 
         <form className="Signup__form" onSubmit={handleSubmit}>
-          <div className="Signup__mainLogo">
-            <Link to="/">
+          <Link to="/" className="Signup__mainLogo">
               <MainLogo />
-            </Link>
-          </div>
+          </Link>
           {errorMessage && (
               <div className="Signup__alertError"> {errorMessage} </div>
           )}

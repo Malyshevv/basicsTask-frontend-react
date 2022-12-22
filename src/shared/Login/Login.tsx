@@ -57,11 +57,9 @@ export function Login() {
   return (
       <div className="Login__main">
         <form className="Login__form"  onSubmit={handleSubmit}>
-          <div className="Login__mainLogo">
-            <Link to="/">
+            <Link to="/" className="Login__mainLogo">
               <MainLogo />
             </Link>
-          </div>
           {errorMessage && (
               <div className="Login__alertError"> {errorMessage} </div>
           )}

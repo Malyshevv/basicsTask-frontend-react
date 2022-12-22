@@ -51,11 +51,9 @@ export function Resetting() {
   return (
       <div className="Resetting__main">
         <form className="Resetting__form"  onSubmit={handleSubmit}>
-          <div className="Resetting__mainLogo">
-            <Link to="/">
+          <Link to="/" className="Resetting__mainLogo">
               <MainLogo />
-            </Link>
-          </div>
+          </Link>
           {errorMessage && (
               <div className="Resetting__alertError"> {errorMessage} </div>
           )}
