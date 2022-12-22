@@ -3,7 +3,7 @@
     background-color: white;
 }
 
-.Main-menu__container {
+.Main-menu__container--navigation {
     position: absolute;
     width: 250px;
     height: 100vh;
@@ -92,7 +92,7 @@ h3:first-letter  {
     width: 80px;
     height: 350px;
     left: 0;
-    top: 20%;
+    top: 15%;
     cursor: pointer;
     border-radius: 0 28px 28px 0;
     z-index: 1000;
@@ -117,6 +117,7 @@ h3:first-letter  {
     width: 40px;
     height: 40px;
     margin: 5px;
+    cursor: pointer;
 }
 
 .Main__tagline {
@@ -126,5 +127,21 @@ h3:first-letter  {
     text-align: center;
     padding-bottom: 10px;
     font-family: 'Manrope', sans-serif;
+}
+
+.Main-menu__container--routes {
+    position: absolute;
+    top: 5%;
+    left: 250px;
+    width: 350px;
+    height: 90vh;
+    overflow-x: auto;
+    scroll-snap-type: y mandatory;
+    z-index: 900;
+    background-color: #017bb9;
+    border-radius: 0 28px 28px 0;
+    border-right: 1px solid rgba(0,0,0,.15);
+    /*box-shadow: 17px 2px 0px 15px #777777;*/
+    box-shadow: 17px 2px 35px 15px #777777;
 
 }

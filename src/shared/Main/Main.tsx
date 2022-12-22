@@ -11,14 +11,15 @@ import {BusLogo} from "../../assets/svg/BusLogo";
 import {TramLogo} from "../../assets/svg/TramLogo";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
-    faChartArea, faChartBar, faChartColumn, faChartGantt,
-    faChartLine, faChartSimple,
-    faCoffee,
+    faChartLine,
     faGear,
-    faHouse, faLineChart,
-    faPersonMilitaryToPerson, faScrewdriver, faTablet, faTablets,
+    faHouse,
+    faPersonMilitaryToPerson,
+    faSliders,
+    faTablet,
     faVideo
 } from '@fortawesome/free-solid-svg-icons'
+
 
 export function Main() {
 
@@ -40,8 +41,8 @@ export function Main() {
     const toggleMenuDrivingQuality = () => setShowDrivingQuality((showDrivingQuality) => !showDrivingQuality);
     const [showPassengerTraffic, setShowPassengerTraffic] = useState(false);
     const toggleMenuPassengerTraffic = () => setShowPassengerTraffic((showPassengerTraffic) => !showPassengerTraffic);
-    // const toggleMenuPassengerTraffic = () => setIsVisiblePassengerTraffic((!isVisiblePassengerTraffic));
-
+    const [showMenuRoute, setShowMenuRoute] = useState(false);
+    const toggleMenuRoute = () => setShowMenuRoute((showMenuRoute) => !showMenuRoute);
 
 
     return (
@@ -51,7 +52,7 @@ export function Main() {
 
           <div  style={{position: 'relative'}}>
               {showMenu &&
-                  <div className="Main-menu__container">
+                  <div className="Main-menu__container--navigation">
                       <div className="Main-menu__logo_container">
                           <Link to="/signup" className="Main-menu__logo">
                               <MainLogo />
@@ -125,7 +126,12 @@ export function Main() {
                           </div>
                       </nav>
 
-                      <div style={{paddingTop: '70px'}}>
+                      <div style={{display: 'flex', justifyContent: 'flex-end', paddingTop: '30px'}}>
+                          <FontAwesomeIcon className="Font-Icon__button" icon={faSliders} onClick={toggleMenuRoute} />
+                      </div>
+
+
+                      <div style={{paddingTop: '40px'}}>
                           <h2 className="Main__tagline">Умный</h2>
                           <h2 className="Main__tagline">транспорт</h2>
                       </div>
@@ -145,7 +151,7 @@ export function Main() {
                   </div>
               }
               {!showMenu &&
-                  <div className={"Main-menu__button-open"} onMouseEnter={() => setShowMenu((!showMenu))}>
+                  <div className="Main-menu__button-open" onMouseEnter={() => setShowMenu((!showMenu))}>
                       <FontAwesomeIcon className="Font-Icon__button" icon={faHouse} />
                       <FontAwesomeIcon className="Font-Icon__button" icon={faVideo} />
                       <FontAwesomeIcon className="Font-Icon__button" icon={faPersonMilitaryToPerson} />
@@ -154,6 +160,14 @@ export function Main() {
                       <FontAwesomeIcon className="Font-Icon__button" icon={faGear} />
                   </div>
               }
+              {showMenuRoute &&
+                  <div className="Main-menu__container--routes">
+
+                  </div>
+              }
+
+
+
           </div>
           <MapHome />
       </div>
