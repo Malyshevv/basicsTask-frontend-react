@@ -184,37 +184,27 @@ export function Main() {
               }
               {showMenuRoute &&
                   <div className="Main-menu__container--routes">
-
-                      <div style={{display: 'flex', flexFlow: 'column',}}>
-                          <p className="Vehicles_big-container__title">Маршруты транспортных средств</p>
-                          <div style={{margin: '10px'}} />
-                          <SelectLabel arr={v} name={'role'} label={'Поиск по номеру маршрута'}/>
-                              <div>
-                                  <div className="Vehicles__form-field">
-                                      <input type='text' placeholder=" " name='transport-find' />
-                                      <label>Поиск по ГРЗ/гаражному № <br/> минимум 3 символа</label>
-                                  </div>
-                              </div>
-                              <div className="Vehicles-checkbox__container">
-                                  <input className="Login__customCheckbox" type="checkbox" id="Online-transport"/>
-                                  <label className='Vehicles-checkbox__label' htmlFor="Online-transport">Онлайн</label>
-                              </div>
-                              <div style={{margin: '10px'}}/>
-                              <div className="Vehicles-checkbox__container">
-                                  <input className="Login__customCheckbox" type="checkbox" id="Actual-transport"/>
-                                  <label className='Vehicles-checkbox__label' htmlFor="Actual-transport">Актуальный пассажиропоток</label>
-                              </div>
-                              <div style={{margin: '35px'}}/>
-
+                      {/*TODO*/}
+                      <p className="Vehicles_big-container__title">Маршруты транспортных средств</p>
+                      <div style={{margin: '12px'}} />
+                      <SelectLabel arr={v} name={'role'} label={'Поиск по номеру маршрута'}/>
+                      <div style={{margin: '12px'}}/>
+                      <div className="Vehicles__form-field">
+                          <input type='text' placeholder=" " name='transport-find' />
+                          <label>Поиск по ГРЗ/гаражному № <br/> минимум 3 символа</label>
                       </div>
-
-
-
-
+                      <div style={{margin: '10px'}}/>
+                      <div className="Vehicles-checkbox__container">
+                          <input className="Login__customCheckbox" type="checkbox" id="Online-transport"/>
+                          <label className='Vehicles-checkbox__label' htmlFor="Online-transport">Онлайн</label>
+                      </div>
+                      <div style={{margin: '10px'}}/>
+                      <div className="Vehicles-checkbox__container">
+                          <input className="Login__customCheckbox" type="checkbox" id="Actual-transport"/>
+                          <label className='Vehicles-checkbox__label' htmlFor="Actual-transport">Актуальный пассажиропоток</label>
+                      </div>
                   </div>
               }
-
-
           </div>
           <MapHome />
 

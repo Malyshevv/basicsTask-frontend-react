@@ -9,6 +9,7 @@
     border-radius: 20px;
     width: 250px;
     color: #fff;
+    -webkit-appearance: none
 }
 .SelectLabel__form-field label {
     position: absolute;
@@ -21,8 +22,8 @@
 }
 
 .SelectLabel__form-field select:hover {
-    border: 1px solid goldenrod;
-    box-shadow: 0 0 5px gold;
+    border: 1px solid silver;
+    box-shadow: 0 0 5px silver;
 }
 .SelectLabel__form-field select:focus + label, select:not(:checked) ~ label {
     top: -6px;
