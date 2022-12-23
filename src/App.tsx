@@ -20,6 +20,16 @@ import {Login} from "./shared/Login";
 import {Signup} from "./shared/Signup";
 import {Accounts} from "./shared/Accounts";
 import {Resetting} from "./shared/Resetting";
+//
+import {BroadcastVideo} from "./shared/BroadcastVideo";
+import {PassengerTrafficTransport} from "./shared/PassengerTrafficTransport";
+import {PassengerTrafficRoute} from "./shared/PassengerTrafficRoute";
+import {DrivingQualityDriverRating} from "./shared/DrivingQualityDriverRating/DrivingQualityDriverRating";
+import {DrivingQualityDrivers} from "./shared/DrivingQualityDrivers/DrivingQualityDrivers";
+import {DrivingQualityBranches} from "./shared/DrivingQualityBranches/DrivingQualityBranches";
+import {DrivingQualityTransport} from "./shared/DrivingQualityTransport";
+import {MediaPanelControl} from "./shared/MediaPanelControl";
+import {AdministrativePanel} from "./shared/AdministrativePanel/AdministrativePanel ";
 
 
 function Container() {
@@ -35,7 +45,18 @@ function Container() {
                     {token && (
                         <Route path="/">
                             <Route path="/" element={<Main/>}/>
-                            <Route path="/accounts" element={<Accounts/>}/>
+                            <Route path="/broadcast-video" element={<BroadcastVideo/>}/>
+                            <Route path="/passenger_transport" element={<PassengerTrafficTransport/>}/>
+                            <Route path="/passenger_route" element={<PassengerTrafficRoute/>}/>
+                            <Route path="/driver-quality/driver-rating" element={<DrivingQualityDriverRating/>}/>
+                            <Route path="/driver-quality/drivers" element={<DrivingQualityDrivers/>}/>
+                            <Route path="/driver-quality/branches" element={<DrivingQualityBranches/>}/>
+                            <Route path="/driver-quality/transport" element={<DrivingQualityTransport/>}/>
+                            <Route path="/media-panel" element={<MediaPanelControl/>}/>
+                            <Route path="/admin" element={<AdministrativePanel/>}/>
+
+
+                            {/*<Route path="/accounts" element={<Accounts/>}/>*/}
                         </Route>
                     )}
                     {!token && (

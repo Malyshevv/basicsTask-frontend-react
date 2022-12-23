@@ -54,7 +54,7 @@ export function Main() {
 
     return (
       <div className="Main__container">
-          {/*<h1>Main Page</h1> <br/>*/}
+          {/*<h1>PassengerTrafficTransport Page</h1> <br/>*/}
           {/*<p><label>User Type:</label> {userType}</p>*/}
 
           <div  style={{position: 'relative'}}>
@@ -74,7 +74,7 @@ export function Main() {
                               </Link>
                           </div>
                           <div className='Navigation__link_container--border'>
-                              <Link className="Navigation__link_container" to="/signup">
+                              <Link className="Navigation__link_container" to="/broadcast-video">
                                   <FontAwesomeIcon className="Navigation__Font-Icon" icon={faVideo} />
                                   <h3 className="Navigation__link">Трансляция видео</h3>
                               </Link>
@@ -88,10 +88,10 @@ export function Main() {
                           {showPassengerTraffic &&
                               <>
                                   <div className='Navigation__link_container--border'>
-                                      <Link className="Navigation__link-subparagraph" to="">по транспорту</Link>
+                                      <Link className="Navigation__link-subparagraph" to="/passenger_transport">по транспорту</Link>
                                   </div>
                                   <div className='Navigation__link_container--border'>
-                                      <Link className="Navigation__link-subparagraph" to="">по маршруту</Link>
+                                      <Link className="Navigation__link-subparagraph" to="/passenger_route">по маршруту</Link>
                                   </div>
                               </>
                           }
@@ -105,28 +105,28 @@ export function Main() {
                           {showDrivingQuality &&
                               <>
                                   <div className='Navigation__link_container--border'>
-                                      <Link className="Navigation__link-subparagraph" to="">рейтинг водителей</Link>
+                                      <Link className="Navigation__link-subparagraph" to="/driver-quality/driver-rating">рейтинг водителей</Link>
                                   </div>
                                   <div className='Navigation__link_container--border'>
-                                      <Link className="Navigation__link-subparagraph" to="">водители</Link>
+                                      <Link className="Navigation__link-subparagraph" to="/driver-quality/drivers">водители</Link>
                                   </div>
                                   <div className='Navigation__link_container--border'>
-                                      <Link className="Navigation__link-subparagraph" to="">филиалы</Link>
+                                      <Link className="Navigation__link-subparagraph" to="/driver-quality/branches">филиалы</Link>
                                   </div>
                                   <div className='Navigation__link_container--border'>
-                                      <Link className="Navigation__link-subparagraph" to="">транспорт</Link>
+                                      <Link className="Navigation__link-subparagraph" to="/driver-quality/transport">транспорт</Link>
                                   </div>
                               </>
                           }
 
                           <div className='Navigation__link_container--border'>
-                              <Link className="Navigation__link_container" to="">
+                              <Link className="Navigation__link_container" to="/media-panel">
                                   <FontAwesomeIcon className="Navigation__Font-Icon" icon={faTablet} />
                                   <h3 className="Navigation__link">Управление медиапанелью</h3>
                               </Link>
                           </div>
                           <div className='Navigation__link_container--border'>
-                              <Link className="Navigation__link_container" to="">
+                              <Link className="Navigation__link_container" to="/admin">
                                   <FontAwesomeIcon className="Navigation__Font-Icon" icon={faGear} />
                                   <h3 className="Navigation__link">Административная панель</h3>
                               </Link>
