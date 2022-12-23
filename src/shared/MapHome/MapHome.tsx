@@ -36,7 +36,6 @@ function MyComponent() {
                     You are here
                     </div>
                 </Tooltip>
-                {/*<Popup>You are here</Popup>*/}
             </Marker>
             {showMenu &&
                 <div className="Transport__main-container" onClick={toggleMenu}>
