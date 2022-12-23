@@ -1,1 +1,1 @@
-export * from './DrivingQualityTransport ';
+export * from './AdministrativePanel ';

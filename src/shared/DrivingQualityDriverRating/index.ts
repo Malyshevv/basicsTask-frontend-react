@@ -1,1 +1,1 @@
-export * from './DrivingQualityDriverRating ';
+export * from './DrivingQualityDriverRating';

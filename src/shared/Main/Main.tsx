@@ -209,7 +209,7 @@ export function Main() {
           <MapHome />
 
 
-
+          {/*TODO*/}
           <div className="Vehicles_small-container" onClick={toggleMenuVehicles}>
                 <p className="Vehicles_small-container__text" style={{color: '#017bb9'}}>Всего: 2200</p>
                   <FontAwesomeIcon  style={{color: '#017bb9', width: '20px', height: '20px'}} icon={faEllipsisVertical} onClick={toggleMenuVehicles} />
@@ -313,6 +313,8 @@ export function Main() {
               </div>
 
           }
+
+
       </div>
     );
 }
