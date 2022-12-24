@@ -1,7 +1,7 @@
 .Resetting__main{
     width: 100%;
     height: 100vh;
-    background: url('../../assets/images/1.png') repeat-y 8px top, url('../../assets/images/1.png') repeat-y right 8px top;
+    background: url('../../../assets/images/1.png') repeat-y 8px top, url('../../../assets/images/1.png') repeat-y right 8px top;
 }
 
 .Resetting__form{

@@ -16,19 +16,19 @@ import {Header} from "./shared/Header";
 import {Footer} from "./shared/Footer";
 import {Main} from "./shared/Main";
 import {NotFound} from "./shared/NotFound";
-import {Login} from "./shared/Login";
-import {Signup} from "./shared/Signup";
-import {Accounts} from "./shared/Accounts";
-import {Resetting} from "./shared/Resetting";
+import {Login} from "./shared/Auth/Login";
+import {Signup} from "./shared/Auth/Signup";
+import {Accounts} from "./shared/Page/Accounts";
+import {Resetting} from "./shared/Auth/Resetting";
 //
-import {BroadcastVideo} from "./shared/BroadcastVideo";
-import {PassengerTrafficTransport} from "./shared/PassengerTrafficTransport";
-import {PassengerTrafficRoute} from "./shared/PassengerTrafficRoute";
-import {DrivingQualityDriverRating} from "./shared/DrivingQualityDriverRating/DrivingQualityDriverRating";
-import {DrivingQualityDrivers} from "./shared/DrivingQualityDrivers/DrivingQualityDrivers";
-import {DrivingQualityBranches} from "./shared/DrivingQualityBranches/DrivingQualityBranches";
-import {DrivingQualityTransport} from "./shared/DrivingQualityTransport";
-import {MediaPanelControl} from "./shared/MediaPanelControl";
+import {BroadcastVideo} from "./shared/Page/BroadcastVideo";
+import {PassengerTrafficTransport} from "./shared/Page/PassengerTrafficTransport";
+import {PassengerTrafficRoute} from "./shared/Page/PassengerTrafficRoute";
+import {DrivingQualityDriverRating} from "./shared/Page/DrivingQualityDriverRating/DrivingQualityDriverRating";
+import {DrivingQualityDrivers} from "./shared/Page/DrivingQualityDrivers/DrivingQualityDrivers";
+import {DrivingQualityBranches} from "./shared/Page/DrivingQualityBranches/DrivingQualityBranches";
+import {DrivingQualityTransport} from "./shared/Page/DrivingQualityTransport";
+import {MediaPanelControl} from "./shared/Page/MediaPanelControl";
 import {AdministrativePanel} from "./shared/AdministrativePanel/AdministrativePanel ";
 
 
@@ -36,6 +36,7 @@ function Container() {
     let location = useLocation();
     let state = location.state as { backgroundLocation?: Location };
     const token = useSelector<RootState, string>(state => state.token)
+    const user = useSelector<RootState, any>((state) => state.user.data);
 
     return (
         <Layout>
@@ -43,29 +44,22 @@ function Container() {
             <Content>
                 <Routes location={state?.backgroundLocation || location}>
                     {token && (
-                        <Route path="/">
-                            <Route path="/" element={<Main/>}/>
-                            <Route path="/broadcast-video" element={<BroadcastVideo/>}/>
-                            <Route path="/passenger_transport" element={<PassengerTrafficTransport/>}/>
-                            <Route path="/passenger_route" element={<PassengerTrafficRoute/>}/>
-                            <Route path="/driver-quality/driver-rating" element={<DrivingQualityDriverRating/>}/>
-                            <Route path="/driver-quality/drivers" element={<DrivingQualityDrivers/>}/>
-                            <Route path="/driver-quality/branches" element={<DrivingQualityBranches/>}/>
-                            <Route path="/driver-quality/transport" element={<DrivingQualityTransport/>}/>
-                            <Route path="/media-panel" element={<MediaPanelControl/>}/>
-                            <Route path="/admin" element={<AdministrativePanel/>}/>
-
-
-                            {/*<Route path="/accounts" element={<Accounts/>}/>*/}
+                        <Route path="/" element={<Main />}>
+                            <Route path="home"/>
+                            <Route path="broadcast-video"/>
+                            <Route path="passenger-transport"/>
+                            <Route path="passenger-route"/>
+                            <Route path="driver-quality/driver-rating"/>
+                            <Route path="driver-quality/drivers"/>
+                            <Route path="driver-quality/branches"/>
+                            <Route path="driver-quality/transport"/>
+                            <Route path="media-panel"/>
+                            <Route path="admin"/>
                         </Route>
                     )}
-                    {!token && (
-                        <Route path="/">
-                            <Route path="/" element={<Login />} />
-                            <Route path="signup" element={<Signup />} />
-                            <Route path="resetting" element={<Resetting />} />
-                        </Route>
-                    )}
+                    <Route path="login" element={<Login />} />
+                    <Route path="signup" element={<Signup />} />
+                    <Route path="resetting" element={<Resetting />} />
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
             </Content>

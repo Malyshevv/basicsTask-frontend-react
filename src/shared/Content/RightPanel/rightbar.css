@@ -1,0 +1,14 @@
+.right {
+    display: flex;
+    flex-flow: column;
+    flex-basis: 75%;
+    background-color: var(--white);
+    box-shadow: 1px solid var(--grayF3);
+    padding: 20px;
+}
+
+@media all and (max-width: 1200px) {
+    .right {
+        flex-basis: 100%;
+    }
+}

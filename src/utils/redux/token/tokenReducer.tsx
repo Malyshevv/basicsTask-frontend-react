@@ -34,7 +34,6 @@ export const saveToken  = (): ThunkAction<void, RootState, unknown, Action<strin
 
 
              const options = {
-
                  method: 'GET',
                  url: `${apiUrl}/auth/profile`,
                  headers: {
@@ -55,10 +54,10 @@ export const saveToken  = (): ThunkAction<void, RootState, unknown, Action<strin
              const data = await axios.get(apiUrl + '/auth/profile', options)
                  .then((res) => {
                      // @ts-ignore
-                     let result = res.data.result
-                     if (result.user) {
-                         dispatch(setUserData(result.user))
-                         Cookies.set('token', result.user.token);
+                     let result = res.data
+                     if (result) {
+                         dispatch(setUserData(result))
+                         Cookies.set('token', result.token);
                      }
                  })
                  .catch((err) => {

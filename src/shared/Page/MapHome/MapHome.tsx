@@ -49,6 +49,7 @@ function MyComponent() {
         </div>
     )
 }
+
 function LocationMarkers() {
 
     const initialMarkers: LatLng[] = [new LatLng(51.505, -0.09)];

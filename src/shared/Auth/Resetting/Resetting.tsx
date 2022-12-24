@@ -3,10 +3,10 @@ import './resetting.css';
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
-import {loginRequestAsync} from "../../utils/redux/User/Login/reducerLogin";
-import {RootState} from "../../utils/redux/reducer";
-import {MainLogo} from "../../assets/svg/MainLogo";
-import {InputLabel} from "../../components/InputLabel";
+import {loginRequestAsync} from "../../../utils/redux/User/Login/reducerLogin";
+import {RootState} from "../../../utils/redux/reducer";
+import {MainLogo} from "../../../assets/svg/MainLogo";
+import {InputLabel} from "../../../components/InputLabel";
 const md5 = require('md5');
 
 

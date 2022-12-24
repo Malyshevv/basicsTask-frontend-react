@@ -1,0 +1,17 @@
+.left {
+    display: flex;
+    flex-flow: column;
+    flex-basis: 25%;
+    margin-right: 10px;
+    background-color: var(--white);
+    box-shadow: 1px solid var(--grayF3);
+    padding: 20px;
+}
+
+@media all and (max-width: 1200px) {
+    .left {
+        flex-basis: 100%;
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+}

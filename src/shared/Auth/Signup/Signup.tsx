@@ -2,11 +2,11 @@ import React, {useState, useEffect, ReactEventHandler, ChangeEvent} from 'react'
 import './signup.css';
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../utils/redux/reducer";
-import {SignupRequestAsync} from "../../utils/redux/User/signup/reducerSignup";
-import {MainLogo} from "../../assets/svg/MainLogo";
-import {InputLabel} from "../../components/InputLabel";
-import {SelectLabel} from "../../components/SelectLabel";
+import {RootState} from "../../../utils/redux/reducer";
+import {SignupRequestAsync} from "../../../utils/redux/User/signup/reducerSignup";
+import {MainLogo} from "../../../assets/svg/MainLogo";
+import {InputLabel} from "../../../components/InputLabel";
+import {SelectLabel} from "../../../components/SelectLabel";
 
 const md5 = require('md5');
 
