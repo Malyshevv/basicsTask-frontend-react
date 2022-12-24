@@ -15,7 +15,7 @@ export function Menu() {
     const closeMenu = () => setShowMenu(false)
 
     return (
-        <div  style={{position: 'relative'}} onMouseLeave={closeMenu}>
+        <div style={{position: 'relative'}} onMouseLeave={closeMenu}>
             <CSSTransition in={showMenu} classNames='alert' timeout={200} unmountOnExit >
                 <div className="Main-menu__container--navigation">
                     <LogoBig style={{padding: '20px'}} />

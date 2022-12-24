@@ -1,0 +1,22 @@
+.VehiclesCounter__container {
+    position: absolute;
+    border-radius: 10px;
+    background-color: white;
+    padding: 7px 15px 7px 15px ;
+    box-sizing: border-box;
+    z-index: 1000;
+    right: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.VehiclesCounter__text{
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+.VehiclesCounter__icon{
+    width: 20px;
+    height: 20px;
+}

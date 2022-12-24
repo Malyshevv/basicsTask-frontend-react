@@ -1,0 +1,22 @@
+.Vehicles-list__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.5px solid #d5d4d4;
+    padding: 15px;
+    height: 50px;
+
+}
+
+.Vehicles-list__Font-Icon {
+    width: 25px;
+    height: 25px;
+    color: #017bb9;
+}
+
+.Vehicles-list__text {
+    color: green;
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
