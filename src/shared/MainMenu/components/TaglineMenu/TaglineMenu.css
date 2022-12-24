@@ -1,0 +1,24 @@
+.Main-tagline__text {
+    color: #017bb9;
+    opacity: 0.5;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 10px;
+    font-family: 'Manrope', sans-serif;
+}
+
+.Main-tagline__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+    opacity: 0.5;
+}
+.Main-tagline__container > div {
+    width: 25px;
+    fill: #017bb9;
+}
+.Main-tagline__container > div:nth-child(2) {
+    margin: 0 15px 0 15px;
+}

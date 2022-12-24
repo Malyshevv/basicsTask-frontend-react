@@ -1,0 +1,10 @@
+.Logo-big__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Logo-big__logo{
+    width: 90px;
+    fill: #017bb9;
+}

@@ -1,26 +1,20 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './MainMenu.css';
-
 import {useSelector} from "react-redux";
 import {RootState} from "../../utils/redux/reducer";
-import {Link} from "react-router-dom";
-import {MainLogo} from "../../assets/svg/MainLogo";
-import {TrolleyBusLogo} from "../../assets/svg/TrolleyBusLogo";
-import {BusLogo} from "../../assets/svg/BusLogo";
-import {TramLogo} from "../../assets/svg/TramLogo";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
-    faBars, faBarsProgress, faBarsStaggered, faBus, faBusAlt, faBusSimple,
-    faChartLine, faEllipsis, faEllipsisH, faEllipsisV, faEllipsisVertical,
-    faGear,
-    faHouse,
-    faPersonMilitaryToPerson,
-    faSliders,
-    faTablet,
-    faVideo
+    faBarsStaggered,
+    faBusSimple,
+    faEllipsisVertical,
+
 } from '@fortawesome/free-solid-svg-icons'
+import {CSSTransition} from "react-transition-group";
+import {Navigation} from "./components/Navigation";
 import {SelectLabel} from "../../components/SelectLabel";
-import {InputLabel} from "../../components/InputLabel";
+import {TaglineMenu} from "./components/TaglineMenu";
+import {LogoBig} from "./components/LogoBig";
+import {MenuSmall} from "./components/MenuSmall";
 
 
 export function MainMenu() {
@@ -28,10 +22,6 @@ export function MainMenu() {
 
     const [showMenu, setShowMenu] = useState(false);
     const toggleMenu = () => setShowMenu((showMenu) => !showMenu);
-    const [showDrivingQuality, setShowDrivingQuality] = useState(false);
-    const toggleMenuDrivingQuality = () => setShowDrivingQuality((showDrivingQuality) => !showDrivingQuality);
-    const [showPassengerTraffic, setShowPassengerTraffic] = useState(false);
-    const toggleMenuPassengerTraffic = () => setShowPassengerTraffic((showPassengerTraffic) => !showPassengerTraffic);
     const [showMenuRoute, setShowMenuRoute] = useState(false);
     const toggleMenuRoute = () => setShowMenuRoute((showMenuRoute) => !showMenuRoute);
     const [showMenuVehicles, setShowMenuVehicles] = useState(false);
@@ -47,135 +37,37 @@ export function MainMenu() {
 
     return (
         <div>
-            {/*<h1>PassengerTrafficTransport Page</h1> <br/>*/}
-            {/*<p><label>User Type:</label> {userType}</p>*/}
-
             <div  style={{position: 'relative'}} onMouseLeave={closeMenu}>
-                {showMenu &&
+                <CSSTransition in={showMenu} classNames='alert' timeout={200} unmountOnExit >
                     <div className="Main-menu__container--navigation">
-                        <div className="Main-menu__logo_container">
-                            <Link to="/home" className="Main-menu__logo">
-                                <MainLogo />
-                            </Link>
-                        </div>
-
-                        <nav className="Navigation__container">
-                            <div className='Navigation__link_container--border'>
-                                <Link className='Navigation__link_container' to="home">
-                                    <FontAwesomeIcon className="Navigation__Font-Icon" icon={faHouse} />
-                                    <h3 className="Navigation__link" >Главная страница</h3>
-                                </Link>
-                            </div>
-                            <div className='Navigation__link_container--border'>
-                                <Link className="Navigation__link_container" to="broadcast-video">
-                                    <FontAwesomeIcon className="Navigation__Font-Icon" icon={faVideo} />
-                                    <h3 className="Navigation__link">Трансляция видео</h3>
-                                </Link>
-                            </div>
-                            <div className='Navigation__link_container--border' onClick={toggleMenuPassengerTraffic}>
-                                <Link className="Navigation__link_container" to="#">
-                                    <FontAwesomeIcon className="Navigation__Font-Icon" icon={faPersonMilitaryToPerson} />
-                                    <h3 className="Navigation__link">Пассажиропоток</h3>
-                                </Link>
-                            </div>
-                            {showPassengerTraffic &&
-                                <>
-                                    <div className='Navigation__link_container--border'>
-                                        <Link className="Navigation__link-subparagraph" to="passenger-transport">по транспорту</Link>
-                                    </div>
-                                    <div className='Navigation__link_container--border'>
-                                        <Link className="Navigation__link-subparagraph" to="passenger-route">по маршруту</Link>
-                                    </div>
-                                </>
-                            }
-                            <div className='Navigation__link_container--border' onClick={toggleMenuDrivingQuality}>
-                                <Link className="Navigation__link_container" to="#">
-                                    <FontAwesomeIcon className="Navigation__Font-Icon" icon={faChartLine} />
-                                    <h3 className="Navigation__link">Качество вождения</h3>
-                                </Link>
-
-                            </div>
-                            {showDrivingQuality &&
-                                <>
-                                    <div className='Navigation__link_container--border'>
-                                        <Link className="Navigation__link-subparagraph" to="driver-quality/driver-rating">рейтинг водителей</Link>
-                                    </div>
-                                    <div className='Navigation__link_container--border'>
-                                        <Link className="Navigation__link-subparagraph" to="driver-quality/drivers">водители</Link>
-                                    </div>
-                                    <div className='Navigation__link_container--border'>
-                                        <Link className="Navigation__link-subparagraph" to="driver-quality/branches">филиалы</Link>
-                                    </div>
-                                    <div className='Navigation__link_container--border'>
-                                        <Link className="Navigation__link-subparagraph" to="driver-quality/transport">транспорт</Link>
-                                    </div>
-                                </>
-                            }
-
-                            <div className='Navigation__link_container--border'>
-                                <Link className="Navigation__link_container" to="/media-panel">
-                                    <FontAwesomeIcon className="Navigation__Font-Icon" icon={faTablet} />
-                                    <h3 className="Navigation__link">Управление медиапанелью</h3>
-                                </Link>
-                            </div>
-                            <div className='Navigation__link_container--border'>
-                                <Link className="Navigation__link_container" to="/admin">
-                                    <FontAwesomeIcon className="Navigation__Font-Icon" icon={faGear} />
-                                    <h3 className="Navigation__link">Административная панель</h3>
-                                </Link>
-                            </div>
-                        </nav>
-
+                        <LogoBig style={{padding: '20px'}} />
+                        <Navigation />
                         <div className="Burger-Icon__main-container">
                             <div className="Burger-Icon__background-container">
-                                <FontAwesomeIcon className={"Burger-Icon__button"}  icon={faBarsStaggered} onClick={toggleMenuRoute} />
+                                <FontAwesomeIcon className={"Burger-Icon__button"}
+                                                 icon={faBarsStaggered}
+                                                 onClick={toggleMenuRoute}
+                                />
                             </div>
                         </div>
-
-                        <div style={{paddingTop: '240px'}}>
-                            <h2 className="Main__tagline">Умный</h2>
-                            <h2 className="Main__tagline">транспорт</h2>
-                        </div>
-
-
-                        <div style={{display: 'flex', alignItems: 'center', paddingTop: '5px', justifyContent: 'center', opacity: '0.5'}}>
-                            <div style={{width: '25px', fill: '#017bb9'}}>
-                                <TrolleyBusLogo/>
-                            </div>
-                            <div style={{width: '25px', fill: '#017bb9', marginLeft: "15px", marginRight: "15px"}} >
-                                <BusLogo/>
-                            </div>
-                            <div style={{width: '25px', fill: '#017bb9'}}>
-                                <TramLogo/>
-                            </div>
-                        </div>
+                        <TaglineMenu style={{marginTop: '240px'}} />
                     </div>
-                }
-                {!showMenu &&
-                    <div className="Main-menu__container-small" >
-                        <Link to="/home" style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                            <div className="Main-menu__logo--small">
-                                <MainLogo />
-                            </div>
-                        </Link>
-                        <div className="Container-small__Font-Icon_container" onMouseEnter={() => setShowMenu((!showMenu))}>
-                            <FontAwesomeIcon className="Font-Icon__button" icon={faHouse} />
-                            <FontAwesomeIcon className="Font-Icon__button" icon={faVideo} />
-                            <FontAwesomeIcon className="Font-Icon__button" icon={faPersonMilitaryToPerson} />
-                            <FontAwesomeIcon className="Font-Icon__button" icon={faChartLine} />
-                            <FontAwesomeIcon className="Font-Icon__button" icon={faTablet} />
-                            <FontAwesomeIcon className="Font-Icon__button" icon={faGear} />
-                        </div>
+                </CSSTransition>
+
+                <CSSTransition in={!showMenu} classNames='alert' timeout={200} unmountOnExit >
+                    <MenuSmall onMouseEnter={() => setShowMenu((!showMenu))}>
                         <div className="Container-small__Burger-Icon_container">
                             <FontAwesomeIcon className={"Burger-Icon__button"}
                                              icon={faBarsStaggered}
-                                             onClick={() => {toggleMenu()
+                                             onClick={() => {
+                                                 toggleMenu()
                                                  toggleMenuRoute()
                                              }} />
                         </div>
-                    </div>
-                }
-                {showMenuRoute &&
+                    </MenuSmall>
+                </CSSTransition>
+
+                <CSSTransition in={showMenuRoute} classNames='alert' timeout={200} unmountOnExit >
                     <div className="Main-menu__container--routes">
                         {/*TODO*/}
                         <p className="Vehicles_big-container__title">Маршруты транспортных средств</p>
@@ -197,14 +89,14 @@ export function MainMenu() {
                             <label className='Vehicles-checkbox__label' htmlFor="Actual-transport">Актуальный пассажиропоток</label>
                         </div>
                     </div>
-                }
+                </CSSTransition>
             </div>
 
 
             {/*TODO*/}
             <div className="Vehicles_small-container" onClick={toggleMenuVehicles}>
                 <p className="Vehicles_small-container__text" style={{color: '#017bb9'}}>Всего: 2200</p>
-                <FontAwesomeIcon  style={{color: '#017bb9', width: '20px', height: '20px'}} icon={faEllipsisVertical} onClick={toggleMenuVehicles} />
+                <FontAwesomeIcon  style={{color: '#017bb9', width: '20px', height: '20px'}} icon={faEllipsisVertical} />
             </div>
             <div className="Vehicles_small-contain" onClick={toggleMenuVehicles}>
                 <p className="Vehicles_small-container__text">Онлайн: 1200</p>
@@ -212,10 +104,7 @@ export function MainMenu() {
             </div>
 
 
-
-
-
-            {showMenuVehicles &&
+            <CSSTransition in={showMenuVehicles} classNames='alert' timeout={300} unmountOnExit >
                 <div className="Vehicles_big-container">
                     <div className="Vehicles_table-contents__container">
                         <span className="Vehicles_table-contents__text">Тип</span>
@@ -303,9 +192,7 @@ export function MainMenu() {
                     </div>
 
                 </div>
-
-            }
-
+            </CSSTransition>
 
         </div>
     );
