@@ -23,6 +23,15 @@ export function Resetting() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if(!loading && user) {
+      console.log(user)
+      navigate('/')
+    } else {
+      console.log(loading)
+    }
+  }, [loading,user]);
+
+  useEffect(() => {
     if (error && error !== undefined) {
       setErrorMessage(error);
     }

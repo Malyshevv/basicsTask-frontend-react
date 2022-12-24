@@ -15,7 +15,7 @@ export function Main() {
     const token = useSelector<RootState, string>(state => state.token)
 
     useEffect(() => {
-        if(location.pathname === '/' && token) {
+        if(['/','/login','/signup','/resetting'].includes(location.pathname) && token) {
             navigate('/home')
         } else {
             navigate('/login')

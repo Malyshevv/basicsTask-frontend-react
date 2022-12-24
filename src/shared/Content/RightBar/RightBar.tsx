@@ -14,6 +14,7 @@ import {DrivingQualityBranches} from "../../Page/DrivingQualityBranches";
 import {DrivingQualityTransport} from "../../Page/DrivingQualityTransport";
 import {MediaPanelControl} from "../../Page/MediaPanelControl";
 import {AdministrativePanel} from "../../AdministrativePanel";
+import {NotFound} from "../../NotFound";
 
 export function RightBar(socket:any) {
     const location = useLocation()
@@ -24,12 +25,11 @@ export function RightBar(socket:any) {
     const [locationName,setLocationName] = useState('');
 
     useEffect(() => {
-        if (location.pathname) {
-            setLocationName(location.pathname);
-        }
+        setLocationName(location.pathname);
     }, [location]);
 
     const getPage = (locationName:string) => {
+        console.log(locationName)
         switch (locationName) {
             case '/home':
                 return <MapHome/>
@@ -51,6 +51,8 @@ export function RightBar(socket:any) {
                 return <MediaPanelControl/>
             case '/admin':
                 return <AdministrativePanel/>
+            default:
+                return <NotFound/>
         }
     }
   return (

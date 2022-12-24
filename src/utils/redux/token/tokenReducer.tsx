@@ -8,7 +8,8 @@ import {store} from "../store";
 import {setToken, setUserData} from "./actionToken";
 import axios from "axios";
 import {accessToken, apiUrl, headers} from "../../../../config/api.config";
-
+import {useSelector} from "react-redux";
+import { createBrowserHistory } from 'history';
 
 export const tokenReducer: Reducer<any, any> = (state, action) => {
     switch (action) {
@@ -45,6 +46,8 @@ export const saveToken  = (): ThunkAction<void, RootState, unknown, Action<strin
                      if (result) {
                          dispatch(setUserData(result))
                          Cookies.set('token', result.token);
+
+                         return result;
                      }
                  })
                  .catch((err) => {
@@ -53,9 +56,9 @@ export const saveToken  = (): ThunkAction<void, RootState, unknown, Action<strin
 
              const token = Cookies.get('token') || window.__token__;
              dispatch(setToken(token))
-             if (token && token != 'undefined') {
-                 Cookies.set('token', token);
-             }
+
+             const browserHistory = createBrowserHistory();
+             browserHistory.push('/')
          }
         fetchData().catch((err) => console.log(err))
     }, []);
