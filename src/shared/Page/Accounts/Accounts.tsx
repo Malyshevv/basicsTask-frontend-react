@@ -1,8 +1,8 @@
 import React,{useEffect, useState} from 'react';
 import styles from './accounts.css';
-import {useAccountsLoad} from "../../utils/hooks/useAccountsLoad";
-import {apiUrl, avatarPath} from "../../../config/api.config";
-import {getAge} from "../../utils/js/getAge";
+import {useAccountsLoad} from "../../../utils/hooks/useAccountsLoad";
+import {apiUrl, avatarPath} from "../../../../config/api.config";
+import {getAge} from "../../../utils/js/getAge";
 
 export function Accounts() {
    interface IList {
