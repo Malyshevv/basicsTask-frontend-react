@@ -21,6 +21,10 @@ import {Signup} from "./shared/Auth/Signup";
 import {Accounts} from "./shared/Page/Accounts";
 import {Resetting} from "./shared/Auth/Resetting";
 
+function Auth() {
+    return (<div></div>)
+}
+
 function Container() {
     let location = useLocation();
     let state = location.state as { backgroundLocation?: Location };
@@ -32,7 +36,7 @@ function Container() {
             {/*<Header/>*/}
             <Content>
                 <Routes location={state?.backgroundLocation || location}>
-                    {token && (
+                    {token && user && (
                         <Route path="/" element={<Main />}>
                             <Route path="home"/>
                             <Route path="broadcast-video"/>
@@ -46,12 +50,14 @@ function Container() {
                             <Route path="admin"/>
                         </Route>
                     )}
-
-
-                    <Route path="login" element={<Login />} />
-                    <Route path="signup" element={<Signup />} />
-                    <Route path="resetting" element={<Resetting />} />
-
+                    {(!token && !user) || (token && !user) && (
+                        <Route >
+                            <Route path="login" element={<Login />} />
+                            <Route path="signup" element={<Signup />} />
+                            <Route path="resetting" element={<Resetting />} />
+                            <Route path="/" element={<Navigate to={"/login"}/>} />
+                        </Route>
+                    )}
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
             </Content>

@@ -15,14 +15,12 @@ export function LeftBar() {
     const [locationName,setLocationName] = useState('');
 
     useEffect(() => {
-        if(user === null && location.pathname != '/login' || user === null && location.pathname != '/signup' || user === null && location.pathname != '/resetting') {
-            navigate('login')
+        if (location.pathname) {
+            setLocationName(location.pathname);
         }
-        setLocationName(location.pathname);
     }, [location]);
 
 const getPage = (locationName:string) => {
-    console.log(locationName)
     switch (locationName) {
         case '/home':
             return <MainMenu/>

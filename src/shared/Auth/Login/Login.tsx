@@ -46,14 +46,6 @@ export function Login() {
     dispatch(loginRequestAsync(data));
   }
 
-  useEffect(() => {
-    if (!loading && user) {
-      window.location.href = '/'
-    }
-  }, [user, loading]);
-
-
-
   return (
       <div className="Login__main">
         <form className="Login__form"  onSubmit={handleSubmit}>
