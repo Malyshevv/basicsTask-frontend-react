@@ -23,7 +23,7 @@ export function Main() {
     },[])
 
     return (
-      <div className="Main__container">
+      <div>
           <LeftBar/>
           <RightBar/>
       </div>

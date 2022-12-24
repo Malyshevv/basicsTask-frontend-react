@@ -24,7 +24,7 @@ export function RightBar(socket:any) {
     const [locationName,setLocationName] = useState('');
 
     useEffect(() => {
-        if(user === null && location.pathname != '/login' || user === null && location.pathname != '/signup' ) {
+        if(user === null && location.pathname != '/login' || user === null && location.pathname != '/signup' || user === null && location.pathname != '/resetting') {
             navigate('login')
         }
         setLocationName(location.pathname);

@@ -21,7 +21,6 @@ import {Signup} from "./shared/Auth/Signup";
 import {Accounts} from "./shared/Page/Accounts";
 import {Resetting} from "./shared/Auth/Resetting";
 
-
 function Container() {
     let location = useLocation();
     let state = location.state as { backgroundLocation?: Location };
@@ -47,13 +46,12 @@ function Container() {
                             <Route path="admin"/>
                         </Route>
                     )}
-                    {!token && (
-                        <Route path="/">
-                            <Route path="login" element={<Login />} />
-                            <Route path="signup" element={<Signup />} />
-                            <Route path="resetting" element={<Resetting />} />
-                        </Route>
-                    )}
+
+
+                    <Route path="login" element={<Login />} />
+                    <Route path="signup" element={<Signup />} />
+                    <Route path="resetting" element={<Resetting />} />
+
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
             </Content>

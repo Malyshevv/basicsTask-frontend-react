@@ -41,7 +41,7 @@ export function Menu() {
     const v = ['1', '2', '3', '4']
 
     return (
-        <div className="Main__container">
+        <div>
             {/*<h1>PassengerTrafficTransport Page</h1> <br/>*/}
             {/*<p><label>User Type:</label> {userType}</p>*/}
 
