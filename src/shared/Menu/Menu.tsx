@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './menu.css';
+import './Menu.css';
 
 import {useSelector} from "react-redux";
 import {RootState} from "../../utils/redux/reducer";
@@ -20,36 +20,24 @@ import {
     faVideo
 } from '@fortawesome/free-solid-svg-icons'
 import {SelectLabel} from "../../components/SelectLabel";
-import {InputLabel} from "../../components/InputLabel";
-
 
 export function Menu() {
     const token = useSelector<RootState, string>(state => state.token)
 
-    const [showMenu, setShowMenu] = useState(false);
-    const toggleMenu = () => setShowMenu((showMenu) => !showMenu);
+
     const [showDrivingQuality, setShowDrivingQuality] = useState(false);
     const toggleMenuDrivingQuality = () => setShowDrivingQuality((showDrivingQuality) => !showDrivingQuality);
     const [showPassengerTraffic, setShowPassengerTraffic] = useState(false);
     const toggleMenuPassengerTraffic = () => setShowPassengerTraffic((showPassengerTraffic) => !showPassengerTraffic);
-    const [showMenuRoute, setShowMenuRoute] = useState(false);
-    const toggleMenuRoute = () => setShowMenuRoute((showMenuRoute) => !showMenuRoute);
-    const [showMenuVehicles, setShowMenuVehicles] = useState(false);
-    const toggleMenuVehicles = () => setShowMenuVehicles((showMenuVehicles) => !showMenuVehicles);
-
-
-    const v = ['1', '2', '3', '4']
-
+    const [showMenu, setShowMenu] = useState(false);
+    const closeMenu = () => setShowMenu(false)
     return (
         <div>
-            {/*<h1>PassengerTrafficTransport Page</h1> <br/>*/}
-            {/*<p><label>User Type:</label> {userType}</p>*/}
-
-            <div  style={{position: 'relative'}}>
+            <div  style={{position: 'relative'}} onMouseLeave={closeMenu}>
                 {showMenu &&
                     <div className="Main-menu__container--navigation">
                         <div className="Main-menu__logo_container">
-                            <Link to="/signup" className="Main-menu__logo">
+                            <Link to="/home" className="Main-menu__logo">
                                 <MainLogo />
                             </Link>
                         </div>
@@ -121,11 +109,7 @@ export function Menu() {
                             </div>
                         </nav>
 
-                        <div className="Burger-Icon__main-container">
-                            <div className="Burger-Icon__background-container">
-                                <FontAwesomeIcon className={"Burger-Icon__button"}  icon={faBarsStaggered} onClick={toggleMenuRoute} />
-                            </div>
-                        </div>
+
 
                         <div style={{paddingTop: '240px'}}>
                             <h2 className="Main__tagline">Умный</h2>
@@ -148,7 +132,7 @@ export function Menu() {
                 }
                 {!showMenu &&
                     <div className="Main-menu__container-small" >
-                        <Link to="/signup" style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                        <Link to="/home" style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                             <div className="Main-menu__logo--small">
                                 <MainLogo />
                             </div>
@@ -161,147 +145,12 @@ export function Menu() {
                             <FontAwesomeIcon className="Font-Icon__button" icon={faTablet} />
                             <FontAwesomeIcon className="Font-Icon__button" icon={faGear} />
                         </div>
-                        <div className="Container-small__Burger-Icon_container">
-                            <FontAwesomeIcon className={"Burger-Icon__button"}
-                                             icon={faBarsStaggered}
-                                             onClick={() => {toggleMenu()
-                                                 toggleMenuRoute()
-                                             }} />
-                        </div>
+
                     </div>
                 }
-                {showMenuRoute &&
-                    <div className="Main-menu__container--routes">
-                        {/*TODO*/}
-                        <p className="Vehicles_big-container__title">Маршруты транспортных средств</p>
-                        <div style={{margin: '12px'}} />
-                        <SelectLabel arr={v} name={'role'} label={'Поиск по номеру маршрута'}/>
-                        <div style={{margin: '12px'}}/>
-                        <div className="Vehicles__form-field">
-                            <input type='text' placeholder=" " name='transport-find' />
-                            <label>Поиск по ГРЗ/гаражному № <br/> минимум 3 символа</label>
-                        </div>
-                        <div style={{margin: '10px'}}/>
-                        <div className="Vehicles-checkbox__container">
-                            <input className="Login__customCheckbox" type="checkbox" id="Online-transport"/>
-                            <label className='Vehicles-checkbox__label' htmlFor="Online-transport">Онлайн</label>
-                        </div>
-                        <div style={{margin: '10px'}}/>
-                        <div className="Vehicles-checkbox__container">
-                            <input className="Login__customCheckbox" type="checkbox" id="Actual-transport"/>
-                            <label className='Vehicles-checkbox__label' htmlFor="Actual-transport">Актуальный пассажиропоток</label>
-                        </div>
-                    </div>
-                }
+
             </div>
-
-
-            {/*TODO*/}
-            <div className="Vehicles_small-container" onClick={toggleMenuVehicles}>
-                <p className="Vehicles_small-container__text" style={{color: '#017bb9'}}>Всего: 2200</p>
-                <FontAwesomeIcon  style={{color: '#017bb9', width: '20px', height: '20px'}} icon={faEllipsisVertical} onClick={toggleMenuVehicles} />
-            </div>
-            <div className="Vehicles_small-contain" onClick={toggleMenuVehicles}>
-                <p className="Vehicles_small-container__text">Онлайн: 1200</p>
-                <FontAwesomeIcon  style={{color: 'rgb(20 129 97)', width: '20px', height: '20px'}} icon={faEllipsisVertical}  />
-            </div>
-
-
-
-
-
-            {showMenuVehicles &&
-                <div className="Vehicles_big-container">
-                    <div className="Vehicles_table-contents__container">
-                        <span className="Vehicles_table-contents__text">Тип</span>
-                        <span className="Vehicles_table-contents__text">Гаражный</span>
-                        <span className="Vehicles_table-contents__text">Маршрут</span>
-                        <span className="Vehicles_table-contents__text">ГРЗ</span>
-                    </div>
-                    <div className="Vehicles-list__container">
-                        <FontAwesomeIcon className="Vehicles-list__Font-Icon" icon={faBusSimple} />
-                        <span className="Vehicles-list__text">191138</span>
-                        <span className="Vehicles-list__text">400T</span>
-                        <span className="Vehicles-list__text">K142УТ99</span>
-                    </div>
-                    <div className="Vehicles-list__container">
-                        <FontAwesomeIcon className="Vehicles-list__Font-Icon" icon={faBusSimple} />
-                        <span className="Vehicles-list__text">191138</span>
-                        <span className="Vehicles-list__text">400T</span>
-                        <span className="Vehicles-list__text">K142УТ99</span>
-                    </div>
-                    <div className="Vehicles-list__container">
-                        <FontAwesomeIcon className="Vehicles-list__Font-Icon" icon={faBusSimple} />
-                        <span className="Vehicles-list__text">191138</span>
-                        <span className="Vehicles-list__text">400T</span>
-                        <span className="Vehicles-list__text">K142УТ99</span>
-                    </div>
-                    <div className="Vehicles-list__container">
-                        <FontAwesomeIcon className="Vehicles-list__Font-Icon" icon={faBusSimple} />
-                        <span className="Vehicles-list__text">191138</span>
-                        <span className="Vehicles-list__text">400T</span>
-                        <span className="Vehicles-list__text">K142УТ99</span>
-                    </div>
-                    <div className="Vehicles-list__container">
-                        <FontAwesomeIcon className="Vehicles-list__Font-Icon" icon={faBusSimple} />
-                        <span className="Vehicles-list__text">191138</span>
-                        <span className="Vehicles-list__text">400T</span>
-                        <span className="Vehicles-list__text">K142УТ99</span>
-                    </div>
-                    <div className="Vehicles-list__container">
-                        <FontAwesomeIcon className="Vehicles-list__Font-Icon" icon={faBusSimple} />
-                        <span className="Vehicles-list__text">191138</span>
-                        <span className="Vehicles-list__text">400T</span>
-                        <span className="Vehicles-list__text">K142УТ99</span>
-                    </div>
-                    <div className="Vehicles-list__container">
-                        <FontAwesomeIcon className="Vehicles-list__Font-Icon" icon={faBusSimple} />
-                        <span className="Vehicles-list__text">191138</span>
-                        <span className="Vehicles-list__text">400T</span>
-                        <span className="Vehicles-list__text">K142УТ99</span>
-                    </div>
-                    <div className="Vehicles-list__container">
-                        <FontAwesomeIcon className="Vehicles-list__Font-Icon" icon={faBusSimple} />
-                        <span className="Vehicles-list__text">191138</span>
-                        <span className="Vehicles-list__text">400T</span>
-                        <span className="Vehicles-list__text">K142УТ99</span>
-                    </div>
-                    <div className="Vehicles-list__container">
-                        <FontAwesomeIcon className="Vehicles-list__Font-Icon" icon={faBusSimple} />
-                        <span className="Vehicles-list__text">191138</span>
-                        <span className="Vehicles-list__text">400T</span>
-                        <span className="Vehicles-list__text">K142УТ99</span>
-                    </div>
-                    <div className="Vehicles-list__container">
-                        <FontAwesomeIcon className="Vehicles-list__Font-Icon" icon={faBusSimple} />
-                        <span className="Vehicles-list__text">191138</span>
-                        <span className="Vehicles-list__text">400T</span>
-                        <span className="Vehicles-list__text">K142УТ99</span>
-                    </div>
-                    <div className="Vehicles-list__container">
-                        <FontAwesomeIcon className="Vehicles-list__Font-Icon" icon={faBusSimple} />
-                        <span className="Vehicles-list__text">191138</span>
-                        <span className="Vehicles-list__text">400T</span>
-                        <span className="Vehicles-list__text">K142УТ99</span>
-                    </div>
-                    <div className="Vehicles-list__container">
-                        <FontAwesomeIcon className="Vehicles-list__Font-Icon" icon={faBusSimple} />
-                        <span className="Vehicles-list__text">191138</span>
-                        <span className="Vehicles-list__text">400T</span>
-                        <span className="Vehicles-list__text">K142УТ99</span>
-                    </div>
-                    <div className="Vehicles-list__container">
-                        <FontAwesomeIcon className="Vehicles-list__Font-Icon" icon={faBusSimple} />
-                        <span className="Vehicles-list__text">191138</span>
-                        <span className="Vehicles-list__text">400T</span>
-                        <span className="Vehicles-list__text">K142УТ99</span>
-                    </div>
-
-                </div>
-
-            }
-
 
         </div>
-    );
+    )
 }

@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import L, {LatLng} from 'leaflet';
 import {MapContainer, TileLayer, Marker, Popup, ZoomControl, useMapEvents, Tooltip} from "react-leaflet";
 import './mapHome.css';
-const r =
 
 // указываем путь к файлам marker
 L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.5.0/dist/images/";
@@ -83,8 +82,8 @@ export function MapHome() {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <ZoomControl position='topright' />
-            <MyComponent />
-            <LocationMarkers />
+            {/*<MyComponent />*/}
+            {/*<LocationMarkers />*/}
             <Marker position={[55.75088, 37.618960]}
                     eventHandlers={{
                         click: () => {
