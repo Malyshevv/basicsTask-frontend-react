@@ -31,8 +31,6 @@ export const tokenReducer: Reducer<any, any> = (state, action) => {
 export const saveToken  = (): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch) => {
     useEffect( () => {
          const fetchData = async () => {
-
-
              const options = {
                  method: 'GET',
                  url: `${apiUrl}/auth/profile`,
@@ -41,19 +39,8 @@ export const saveToken  = (): ThunkAction<void, RootState, unknown, Action<strin
                  }
              };
 
-             // axios.request(options).then(function (response) {
-             //     console.log(response.data);
-             // }).catch(function (error) {
-             //     console.error(error);
-             // });
-
-
-
-
-             // const option = {headers: headers, withCredentials: true}
              const data = await axios.get(apiUrl + '/auth/profile', options)
                  .then((res) => {
-                     // @ts-ignore
                      let result = res.data
                      if (result) {
                          dispatch(setUserData(result))

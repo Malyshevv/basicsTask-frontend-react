@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 import {RootState} from "../../utils/redux/reducer";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {LeftBar} from "../Content/LeftBar";
-import {RightBar} from "../Content/RightPanel";
+import {RightBar} from "../Content/RightBar";
 
 
 export function Main() {

@@ -20,16 +20,6 @@ import {Login} from "./shared/Auth/Login";
 import {Signup} from "./shared/Auth/Signup";
 import {Accounts} from "./shared/Page/Accounts";
 import {Resetting} from "./shared/Auth/Resetting";
-//
-import {BroadcastVideo} from "./shared/Page/BroadcastVideo";
-import {PassengerTrafficTransport} from "./shared/Page/PassengerTrafficTransport";
-import {PassengerTrafficRoute} from "./shared/Page/PassengerTrafficRoute";
-import {DrivingQualityDriverRating} from "./shared/Page/DrivingQualityDriverRating/DrivingQualityDriverRating";
-import {DrivingQualityDrivers} from "./shared/Page/DrivingQualityDrivers/DrivingQualityDrivers";
-import {DrivingQualityBranches} from "./shared/Page/DrivingQualityBranches/DrivingQualityBranches";
-import {DrivingQualityTransport} from "./shared/Page/DrivingQualityTransport";
-import {MediaPanelControl} from "./shared/Page/MediaPanelControl";
-import {AdministrativePanel} from "./shared/AdministrativePanel/AdministrativePanel ";
 
 
 function Container() {
@@ -57,9 +47,13 @@ function Container() {
                             <Route path="admin"/>
                         </Route>
                     )}
-                    <Route path="login" element={<Login />} />
-                    <Route path="signup" element={<Signup />} />
-                    <Route path="resetting" element={<Resetting />} />
+                    {!token && (
+                        <Route path="/">
+                            <Route path="login" element={<Login />} />
+                            <Route path="signup" element={<Signup />} />
+                            <Route path="resetting" element={<Resetting />} />
+                        </Route>
+                    )}
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
             </Content>
