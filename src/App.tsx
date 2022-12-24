@@ -36,7 +36,7 @@ function Container() {
             {/*<Header/>*/}
             <Content>
                 <Routes location={state?.backgroundLocation || location}>
-                    {token && user && (
+                    {user && (
                         <Route path="/" element={<Main />}>
                             <Route path="home"/>
                             <Route path="broadcast-video"/>
@@ -50,14 +50,9 @@ function Container() {
                             <Route path="admin"/>
                         </Route>
                     )}
-                    {(!token && !user) || (token && !user) && (
-                        <Route >
-                            <Route path="login" element={<Login />} />
-                            <Route path="signup" element={<Signup />} />
-                            <Route path="resetting" element={<Resetting />} />
-                            <Route path="/" element={<Navigate to={"/login"}/>} />
-                        </Route>
-                    )}
+                    <Route path="login" element={<Login />} />
+                    <Route path="signup" element={<Signup />} />
+                    <Route path="resetting" element={<Resetting />} />
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
             </Content>
